@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
+get 'courses/index'
 
-
-root to: "home#index"
+  resources :courses
+  devise_for :users
+root to: "courses#index"
 
   
   # The priority is based upon order of creation: first created -> highest priority.

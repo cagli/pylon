@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  tite: MyString
+  description: MyText
+  logo: MyString
+  category: MyText
+  level: MyString
+  teacher: MyString
+  learning_skills: MyText
+  points: MyString
+
+two:
+  id: 1
+  tite: MyString
+  description: MyText
+  logo: MyString
+  category: MyText
+  level: MyString
+  teacher: MyString
+  learning_skills: MyText
+  points: MyString
