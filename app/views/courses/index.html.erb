@@ -6,9 +6,10 @@ The time is now: <%= Time.now %>
   <thead>
     <tr>
       <th>Id</th>
-      <th>Tite</th>
+      <th>Title</th>
+      <th>Modules</th>
       <th>Description</th>
-      <th>Logo</th>
+      <th>course_icon</th>
       <th>Category</th>
       <th>Level</th>
       <th>Teacher</th>
@@ -21,15 +22,17 @@ The time is now: <%= Time.now %>
   <tbody>
     <% @courses.each do |course| %>
       <tr>
-        <td><%= course.id %></td>
-        <td><%= course.tite %></td>
+
+        <td><%= course.course_id %></td>
+        <td><%= course.title %></td>
+        <td> <%=link_to "chapter", course_chapters_path(course) %> </td>
         <td><%= course.description %></td>
-        <td><%= course.logo %></td>
+        <td><%= course.course_icon %></td>
         <td><%= course.category %></td>
         <td><%= course.level %></td>
         <td><%= course.teacher %></td>
         <td><%= course.learning_skills %></td>
-        <td><%= course.points %></td>
+        <td><%= course.course_points %></td>
         <td><%= link_to 'Show', course %></td>
         <td><%= link_to 'Edit', edit_course_path(course) %></td>
         <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>

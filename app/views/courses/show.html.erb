@@ -2,12 +2,12 @@
 
 <p>
   <strong>Id:</strong>
-  <%= @course.id %>
+  <%= @course.course_id %>
 </p>
 
 <p>
-  <strong>Tite:</strong>
-  <%= @course.tite %>
+  <strong>Title:</strong>
+  <%= @course.title %>
 </p>
 
 <p>
@@ -16,8 +16,8 @@
 </p>
 
 <p>
-  <strong>Logo:</strong>
-  <%= @course.logo %>
+  <strong>icon:</strong>
+  <%= @course.course_icon %>
 </p>
 
 <p>
@@ -42,7 +42,7 @@
 
 <p>
   <strong>Points:</strong>
-  <%= @course.points %>
+  <%= @course.course_points %>
 </p>
 
 <%= link_to 'Edit', edit_course_path(@course) %> |

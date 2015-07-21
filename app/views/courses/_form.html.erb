@@ -12,20 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :id %><br>
-    <%= f.number_field :id %>
+    <%= f.label :course_id %><br>
+    <%= f.number_field :course_id %>
   </div>
   <div class="field">
-    <%= f.label :tite %><br>
-    <%= f.text_field :tite %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :logo %><br>
-    <%= f.text_field :logo %>
+    <%= f.label :course_icon %><br>
+    <%= f.text_field :course_icon %>
   </div>
   <div class="field">
     <%= f.label :category %><br>
@@ -44,10 +44,13 @@
     <%= f.text_area :learning_skills %>
   </div>
   <div class="field">
-    <%= f.label :points %><br>
-    <%= f.text_field :points %>
+    <%= f.label :course_points %><br>
+    <%= f.text_field :course_points %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+
+
