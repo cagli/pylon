@@ -23,6 +23,7 @@ gem 'turbolinks'
 
 gem 'simple_form'
 
+gem 'foundation-icons-sass-rails'
 
 gem 'foundation-rails'
 group :development do
