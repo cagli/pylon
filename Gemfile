@@ -21,12 +21,17 @@ gem 'jquery-rails'
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 
+gem 'simple_form'
+
+
 gem 'foundation-rails'
 group :development do
   gem 'rails_layout'
 end
 
 gem 'devise'
+
+gem 'cancancan', '~> 1.10'
 
 gem 'rails_12factor', group: :production
 
