@@ -1,10 +1,8 @@
 <%# navigation styled for Zurb Foundation 5 %>
 <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
   <div class="title-area">
-    <div class="name">
-      <h1>
-        <%= link_to "Pylon", welcome_path('home') %>
-      </h1>
+    <div class="name left-off-canvas-toggle">    
+      <h1><%= link_to "Pylon", welcome_path('home') %></h1>
     </div>
     <div class="toggle-topbar menu-icon">
       <a href="#"><span>Menu</span></a>
@@ -14,5 +12,5 @@
     <ul class="right">
       <%= render 'layouts/navigation_links' %>
     </ul>
-  </section>
+  </div>
 </nav>
