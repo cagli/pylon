@@ -1,17 +1,16 @@
 <%# navigation styled for Zurb Foundation 5 %>
-<div class="contain-to-grid sticky">
-<nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
-<div class="large-6 columns">  
-	<ul class="title-area">
-    <li class="name">
+<nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
+  <div class="title-area">
+    <div class="name left-off-canvas-toggle">    
       <h1><%= link_to "Pylon", welcome_path('home') %></h1>
-    </li>
-  </ul>
-</div>
+    </div>
+    <div class="toggle-topbar menu-icon">
+      <a href="#"><span>Menu</span></a>
+    </div>
+  </div>
   <div class="top-bar-section">
-	<ul class="right">
+    <ul class="right">
       <%= render 'layouts/navigation_links' %>
     </ul>
   </div>
 </nav>
-</div>

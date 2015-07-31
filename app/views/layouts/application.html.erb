@@ -11,12 +11,42 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
-    <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
-    </main>
+
+    <div class="off-canvas-wrap" data-offcanvas>
+
+      <!-- Top Bar (Outside of Canvas) -->
+      <header class="sticky">
+        <%= render 'layouts/navigation' %>
+      </header>
+      <!-- End Top Bar -->
+
+      <main class="inner-wrap">
+
+        <!-- Off Canvas Menu -->
+        <aside class="left-off-canvas-menu">
+          <ul class="off-canvas-list">
+            <li><a href="#"><i class="fi-home"></i><span>Acceuil</span></a></li>
+            <li><a href="#"><i class="fi-torso"></i><span>Profile</span></a></li>
+            <li><a href="#"><i class="fi-star"></i><span>Favoris</span></a></li>
+            <li><a href="#"><i class="fi-target"></i><span>Objectifs</span></a></li>
+            <li><a href="#"><i class="fi-trophy"></i><span>Accomplissements</span></a></li>
+            <li><a href="#"><i class="fi-graph-bar"></i><span>Statistiquess</span></a></li>
+            <li><a href="#"><i class="fi-comments"></i><span>Forum</span></a></li>
+            <li><a href="#"><i class="fi-power"></i><span>Déconnexion</span></a></li>
+          </ul>
+        </aside>
+        <!-- End Off Canvas Menu -->
+
+        <!-- Main Content of the Page Goes Here -->
+        <div class="row">
+          <%= render 'layouts/messages' %>
+          <%= yield %>
+        </div>
+
+        <!-- Close the Off-canvas Menu -->
+        <a class="exit-off-canvas"></a>
+      </main>
+    </div>
+
   </body>
 </html>
