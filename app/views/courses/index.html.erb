@@ -1,77 +1,88 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
 
-<h1>Courses</h1>
-The time is now: <%= Time.now %>
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Title</th>
-      <th>Modules</th>
-      <th>Description</th>
-      <th>course_icon</th>
-      <th>Category</th>
-      <th>Level</th>
-      <th>Teacher</th>
-      <th>Learning skills</th>
-      <th>Points</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <ul class="breadcrumbs">
+  <li><%= link_to "Acceuil", welcome_path('home') %></li>
+    <li><%= link_to "Contact", welcome_path('contact') %></li>
+    <li><%= link_to "Fonctionnalités", welcome_path('features') %></li>
+    <li><%= link_to "Abonnement", welcome_path('payment') %></li>
+    <li><%= link_to "Termes et Conditions", welcome_path('terms') %></li>
+    <li><%= link_to "Cours", courses_path %></li>
+</ul>
 
-  <tbody>
-    <% @courses.each do |course| %>
+  <p id="notice"><%= notice %></p>
+
+  <h1>Courses</h1>
+  The time is now: <%= Time.now %>
+  <table>
+    <thead>
       <tr>
-
-        <td><%= course.course_id %></td>
-        <td><%= course.title %></td>
-        <td> <%=link_to "chapter", course_chapters_path(course) %> </td>
-        <td><%= course.description %></td>
-        <td><%= course.course_icon %></td>
-        <td><%= course.category %></td>
-        <td><%= course.level %></td>
-        <td><%= course.teacher %></td>
-        <td><%= course.learning_skills %></td>
-        <td><%= course.course_points %></td>
-        <td><%= link_to 'Show', course %></td>
-        <td><%= link_to 'Edit', edit_course_path(course) %></td>
-        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Modules</th>
+        <th>Description</th>
+        <th>course_icon</th>
+        <th>Category</th>
+        <th>Level</th>
+        <th>Teacher</th>
+        <th>Learning skills</th>
+        <th>Points</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @courses.each do |course| %>
+        <tr>
 
-<%= link_to 'New Course', new_course_path %>
+          <td><%= course.course_id %></td>
+          <td><%= course.title %></td>
+          <td> <%=link_to "chapter", course_chapters_path(course) %> </td>
+          <td><%= course.description %></td>
+          <td><%= course.course_icon %></td>
+          <td><%= course.category %></td>
+          <td><%= course.level %></td>
+          <td><%= course.teacher %></td>
+          <td><%= course.learning_skills %></td>
+          <td><%= course.course_points %></td>
+          <td><%= link_to 'Show', course %></td>
+          <td><%= link_to 'Edit', edit_course_path(course) %></td>
+          <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
+  <br>
 
-
-
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-<% end %>
-
-
-<%= form_tag do %>
-  Form contents
-<% end %>
-
-
-<%= check_box_tag(:pet_dog) %>
-<%= label_tag(:pet_dog, "I own a dog") %>
-<%= check_box_tag(:pet_cat) %>
-<%= label_tag(:pet_cat, "I own a cat") %>
-
-
-
-<%= radio_button_tag(:age, "child") %>
-<%= label_tag(:age_child, "I am younger than 21") %>
-<%= radio_button_tag(:age, "adult") %>
-<%= label_tag(:age_adult, "I'm over 21") %>
+  <%= link_to 'New Course', new_course_path %>
 
 
+
+
+  <%= form_tag("/search", method: "get") do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+
+
+  <%= form_tag do %>
+    Form contents
+  <% end %>
+
+
+  <%= check_box_tag(:pet_dog) %>
+  <%= label_tag(:pet_dog, "I own a dog") %>
+  <%= check_box_tag(:pet_cat) %>
+  <%= label_tag(:pet_cat, "I own a cat") %>
+
+
+
+  <%= radio_button_tag(:age, "child") %>
+  <%= label_tag(:age_child, "I am younger than 21") %>
+  <%= radio_button_tag(:age, "adult") %>
+  <%= label_tag(:age_adult, "I'm over 21") %>
+
+</div>
 
 

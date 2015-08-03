@@ -1,37 +1,172 @@
-<div class="banner">
+<div class="row">
+	<ul class="breadcrumbs">
+		<li><%= link_to "Acceuil", welcome_path('home') %></li>
+	  	<li><%= link_to "Contact", welcome_path('contact') %></li>
+	  	<li><%= link_to "Fonctionnalités", welcome_path('features') %></li>
+	  	<li><%= link_to "Abonnement", welcome_path('payment') %></li>
+	  	<li><%= link_to "Termes et Conditions", welcome_path('terms') %></li>
+	  	<li><%= link_to "Cours", courses_path %></li>
+	</ul>
+</div>
+<div class="hero">
+	<div class="row"> 
+		<nav>
+			<ul class="left">
+				<li><%= link_to "Pylon", welcome_path('home') %></li>
+			</ul>
+			<ul class="right">
+				<li><%= link_to('Inscription', new_user_registration_path) %></li>
+				<li><%= link_to 'Connexion', '#', data: {:'reveal-id' => "signupModal"} %></li>
+			</ul>
+		</nav>
+	</div>
 	<div class="row">
 		<div class="large-10 large-centered columns">
 			<h1>Programmer.</h1>
-			<p>Découvrir et développer vos compétences en programmation n'a jamais été aussi simple.</p>
+			<p>Découvrir et développer vos compétences en Informatique n'a jamais été aussi simple.</p>
 		</div>
 	</div>
 </div>
 <div class="features">
 	<div class="row">
 		<div class="large-4 columns">
-			<h4>Lorem ipsum.</h4>
-      		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae purus eu neque hendrerit volutpat. Proin tristique risus nunc, quis aliquet nulla gravida sit amet. Duis nec luctus mauris, sed dapibus orci.</p>
+			<h4><i class="fi-torsos-all"></i></h4>
+      		<p>Rejoignez la grande communauté de développeurs français.</p>
 		</div>
 		<div class="large-4 columns">
-			<h4>Lorem ipsum.</h4>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae purus eu neque hendrerit volutpat. Proin tristique risus nunc, quis aliquet nulla gravida sit amet. Duis nec luctus mauris, sed dapibus orci.</p>
+			<h4><i class="fi-database"></i></h4>
+			<p>Un vaste choix de cours en ligne de programmation, facile d'accés.</p>
 		</div>
 		<div class="large-4 columns">
-			<h4>Lorem ipsum.</h4>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae purus eu neque hendrerit volutpat. Proin tristique risus nunc, quis aliquet nulla gravida sit amet. Duis nec luctus mauris, sed dapibus orci.</p>
+			<h4><i class="fi-puzzle"></i></h4>
+			<p>Quel que ce soit votre niveau, apprenez facilement à votre rythme.</p>
 		</div>
 	</div>
 </div>
-<div class="banner">
+<div class="cours">
+	<div class="row">
+		<h3>Un nombre de cours en ligne incroyable, à portée de main.</h3>
+	</div>
+	<div class="row">
+		<div class="large-4 columns">
+			<h4><i class="fi-html5"></i></h4>
+      		<p>Apprenez les bases d'un site Internet avec l'HTML.</p>
+		</div>
+		<div class="large-4 columns">
+			<h4><i class="fi-css3"></i></h4>
+			<p>Allez plus loin avec de la personnalisation grâce au CSS.</p>
+		</div>
+		<div class="large-4 columns">
+			<h4><i class="fi-share"></i></h4>
+			<p>Partager vos projets avec le monde entier, simplement.</p>
+		</div>
+	</div>
+</div>
+<div class="team">
+	<div class="row">
+		<div class="large-8 large-centered columns">
+			<h3>Une équipe pédagogique généreuse et efficace pour vous accompagner, vous guider, et vous proposer les meilleurs cours, à votre rythme !</h3>
+			<p>Une équipe pédagogique généreuse et efficace pour vous accompagner, vous guider, et vous proposer les meilleurs cours, à votre rythme !</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-12 large-centered columns">
+			<div class="large-4 columns profile">
+				<div class="profile-photo"></div>
+				<h4>Michel Minot</h4>
+				<p>Co-Fondateur</p>
+				<p>Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup.</p>
+			</div>
+			<div class="large-4 columns profile">
+				<div class="profile-photo"></div>
+				<h4>Benjamin Roucheyrolles</h4>
+				<p>Co-Fondateur</p>
+				<p>Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup. Plop Plip Ploup.</p>
+			</div>
+			<div class="large-4 columns profile">
+				<div class="profile-photo"></div>
+				<h4>Gaia</h4>
+				<p>Professeur</p>
+				<p>Tu me vois, tu me vois un peu, tu me vois plus. Une légende de Crosshaven.</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="signup">
+	<div class="row">
+		<div class="large-6 large-centered columns">
+			<h3>Inscrivez-vous sans plus tarder !</h3>
+			<p>Profitez dès maintenant de nos meilleures offres.</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-12 large-centered columns">
+			<form method="post">
+				<div class="small-12 large-4 columns large-offset-1">
+					<input type="text" placeholder="Votre Nom" name="nom">
+				</div>
+				<div class="small-12 large-4 columns">
+					<input type="email" placeholder="Votre Email" name="email">
+				</div>
+				<div class="small-12 large-2 columns left">
+					<button type="submit">S'inscrire</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="pricing">
+  	<div class="row">
+  		<div class="large-5 large-centered columns">
+  			<h3>Un Abonnement Imbattable.</h3>
+  		</div>
+  	</div>
+  	<div class="row">
+  		<div class="large-9 large-centered columns">
+	  		<div class="large-6 columns">
+		  		<ul class="pricing-table">
+				  <li class="title">Etudiant</li>
+				  <li class="price">10 &euro;</li>
+				  <li class="description">An awesome description</li>
+				  <li class="bullet-item">1 Database</li>
+				  <li class="bullet-item">5GB Storage</li>
+				  <li class="bullet-item">20 Users</li>
+				  <li class="cta-button"><a class="button" href="#" data-reveal-id="inscriModal">Souscrire</a></li>
+				</ul>
+			</div>
+			<div class="large-6 columns">
+		  		<ul class="pricing-table">
+				  <li class="title">Classique</li>
+				  <li class="price">15 &euro;</li>
+				  <li class="description">An awesome description</li>
+				  <li class="bullet-item">1 Database</li>
+				  <li class="bullet-item">5GB Storage</li>
+				  <li class="bullet-item">20 Users</li>
+				  <li class="cta-button"><a class="button" href="#" data-reveal-id="inscriModal">Souscrire</a></li>
+				</ul>
+			</div>
+		</div>
+  	</div>
+</div>
+<div class="content">
+	<div class="row">
+		<div class="large-4 columns">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae purus eu neque hendrerit volutpat. Proin tristique risus nunc, quis aliquet nulla gravida sit amet. Duis nec luctus mauris, sed dapibus orci. Aenean accumsan, arcu vel auctor laoreet, velit sapien varius diam, et malesuada magna sapien sit amet dolor.</p>
+		</div>
+		<div class="large-4 columns">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae purus eu neque hendrerit volutpat. Proin tristique risus nunc, quis aliquet nulla gravida sit amet. Duis nec luctus mauris, sed dapibus orci. Aenean accumsan, arcu vel auctor laoreet, velit sapien varius diam, et malesuada magna sapien sit amet dolor.</p>
+		</div>
+		<div class="large-4 columns">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae purus eu neque hendrerit volutpat. Proin tristique risus nunc, quis aliquet nulla gravida sit amet. Duis nec luctus mauris, sed dapibus orci. Aenean accumsan, arcu vel auctor laoreet, velit sapien varius diam, et malesuada magna sapien sit amet dolor.</p>
+		</div>
+	</div>
 	<div class="row">
 		<div class="large-10 large-centered columns">
-			<h1>Programmer.</h1>
-			<p>Découvrir et développer vos compétences en programmation n'a jamais été aussi simple.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae purus eu neque hendrerit volutpat. Proin tristique risus nunc, quis aliquet nulla gravida sit amet. Duis nec luctus mauris, sed dapibus orci. Aenean accumsan, arcu vel auctor laoreet, velit sapien varius diam, et malesuada magna sapien sit amet dolor. Nam dictum vel lacus ut condimentum.</p>
 		</div>
 	</div>
 </div>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae purus eu neque hendrerit volutpat. Proin tristique risus nunc, quis aliquet nulla gravida sit amet. Duis nec luctus mauris, sed dapibus orci. Aenean accumsan, arcu vel auctor laoreet, velit sapien varius diam, et malesuada magna sapien sit amet dolor. Nam dictum vel lacus ut condimentum. Donec congue sed mi eget ornare. Sed gravida nunc sed odio aliquet, et pellentesque libero scelerisque. Praesent congue ac orci nec consequat. Sed nec suscipit massa, in pellentesque magna. Sed tortor ex, facilisis sed lacus non, tristique lobortis enim. Quisque dapibus turpis a risus fringilla, quis commodo velit lobortis. Nulla accumsan rutrum eros et laoreet. Vestibulum venenatis nisl sed libero fringilla, at varius enim tristique. Cras et luctus metus. Morbi neque nibh, tempus vitae justo sit amet, semper suscipit tellus. Nulla sit amet tincidunt dolor, at dignissim sem.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae purus eu neque hendrerit volutpat. Proin tristique risus nunc, quis aliquet nulla gravida sit amet. Duis nec luctus mauris, sed dapibus orci. Aenean accumsan, arcu vel auctor laoreet, velit sapien varius diam, et malesuada magna sapien sit amet dolor. Nam dictum vel lacus ut condimentum. Donec congue sed mi eget ornare. Sed gravida nunc sed odio aliquet, et pellentesque libero scelerisque. Praesent congue ac orci nec consequat. Sed nec suscipit massa, in pellentesque magna. Sed tortor ex, facilisis sed lacus non, tristique lobortis enim. Quisque dapibus turpis a risus fringilla, quis commodo velit lobortis. Nulla accumsan rutrum eros et laoreet. Vestibulum venenatis nisl sed libero fringilla, at varius enim tristique. Cras et luctus metus. Morbi neque nibh, tempus vitae justo sit amet, semper suscipit tellus. Nulla sit amet tincidunt dolor, at dignissim sem.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae purus eu neque hendrerit volutpat. Proin tristique risus nunc, quis aliquet nulla gravida sit amet. Duis nec luctus mauris, sed dapibus orci. Aenean accumsan, arcu vel auctor laoreet, velit sapien varius diam, et malesuada magna sapien sit amet dolor. Nam dictum vel lacus ut condimentum. Donec congue sed mi eget ornare. Sed gravida nunc sed odio aliquet, et pellentesque libero scelerisque. Praesent congue ac orci nec consequat. Sed nec suscipit massa, in pellentesque magna. Sed tortor ex, facilisis sed lacus non, tristique lobortis enim. Quisque dapibus turpis a risus fringilla, quis commodo velit lobortis. Nulla accumsan rutrum eros et laoreet. Vestibulum venenatis nisl sed libero fringilla, at varius enim tristique. Cras et luctus metus. Morbi neque nibh, tempus vitae justo sit amet, semper suscipit tellus. Nulla sit amet tincidunt dolor, at dignissim sem.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae purus eu neque hendrerit volutpat. Proin tristique risus nunc, quis aliquet nulla gravida sit amet. Duis nec luctus mauris, sed dapibus orci. Aenean accumsan, arcu vel auctor laoreet, velit sapien varius diam, et malesuada magna sapien sit amet dolor. Nam dictum vel lacus ut condimentum. Donec congue sed mi eget ornare. Sed gravida nunc sed odio aliquet, et pellentesque libero scelerisque. Praesent congue ac orci nec consequat. Sed nec suscipit massa, in pellentesque magna. Sed tortor ex, facilisis sed lacus non, tristique lobortis enim. Quisque dapibus turpis a risus fringilla, quis commodo velit lobortis. Nulla accumsan rutrum eros et laoreet. Vestibulum venenatis nisl sed libero fringilla, at varius enim tristique. Cras et luctus metus. Morbi neque nibh, tempus vitae justo sit amet, semper suscipit tellus. Nulla sit amet tincidunt dolor, at dignissim sem.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae purus eu neque hendrerit volutpat. Proin tristique risus nunc, quis aliquet nulla gravida sit amet. Duis nec luctus mauris, sed dapibus orci. Aenean accumsan, arcu vel auctor laoreet, velit sapien varius diam, et malesuada magna sapien sit amet dolor. Nam dictum vel lacus ut condimentum. Donec congue sed mi eget ornare. Sed gravida nunc sed odio aliquet, et pellentesque libero scelerisque. Praesent congue ac orci nec consequat. Sed nec suscipit massa, in pellentesque magna. Sed tortor ex, facilisis sed lacus non, tristique lobortis enim. Quisque dapibus turpis a risus fringilla, quis commodo velit lobortis. Nulla accumsan rutrum eros et laoreet. Vestibulum venenatis nisl sed libero fringilla, at varius enim tristique. Cras et luctus metus. Morbi neque nibh, tempus vitae justo sit amet, semper suscipit tellus. Nulla sit amet tincidunt dolor, at dignissim sem.</p>
+<div id="signupModal" class="reveal-modal" data-reveal>
+    <%= render 'devise/sessions/new' %>
+    <a class="close-reveal-modal">&#215;</a>
+</div>

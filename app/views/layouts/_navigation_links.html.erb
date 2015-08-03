@@ -2,38 +2,19 @@
 <%if user_signed_in? %>
 
   <li class="divider"></li>
-  <li><%= link_to 'Home', root_path %></li>
-  <li class="divider"></li>
-  <li><a href="#"><i class="fi-trophy"></i><span>Points</span></a></li>
-  <li class="divider"></li>
-  <li class="has-dropdown">
-    <a href="#"><i class="fi-torso"></i><span>Profile</span></a>
-    <ul class="dropdown">
-      <li><a href="#">Compte</a></li>
-      <li><a href="#">Reglages</a></li>
-    </ul>
-  </li>
-  <li class="divider"></li>
-  <li><a href="#"><i class="fi-comments"></i></a></li>
-  <li class="divider"></li>
   <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
 
 <% else %>
 
   <li class="divider"></li>
-  <li><%= link_to 'Fonctionnalités', welcome_path('features') %></li>
-  <li class="divider"></li>
-  <li><%= link_to 'Abonnement', welcome_path('payment') %></li>
-  <li class="divider"></li>
   <li><%= link_to('Inscription', new_user_registration_path) %></li>
   <li class="divider"></li>
   <li><%= link_to 'Connexion', '#', data: {:'reveal-id' => "signupModal"} %></li>
-
   <div id="signupModal" class="reveal-modal" data-reveal>
     <%= render 'devise/sessions/new' %>
     <a class="close-reveal-modal">&#215;</a>
   </div>
-
+  
 <% end %>
 
 
