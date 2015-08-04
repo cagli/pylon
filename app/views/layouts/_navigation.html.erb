@@ -1,16 +1,25 @@
 <%# navigation styled for Zurb Foundation 5 %>
 <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
-  <div class="title-area">
-    <div class="name left-off-canvas-toggle">    
-      <h1><%= link_to "Pylon", welcome_path('home') %></h1>
-    </div>
-    <div class="toggle-topbar menu-icon">
-      <a href="#"><span>Menu</span></a>
-    </div>
-  </div>
-  <div class="top-bar-section">
+  <ul class="title-area left-off-canvas-toggle">
+    <li class="name">
+      <h1><a href="#">Pylon</a></h1>
+    </li>
+    <!-- For Responsive design on smaller devices : -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone. -->
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Navigation Links - Extra-Security : Changing if Visitor (not logged in) or User (logged in) -->
     <ul class="right">
       <%= render 'layouts/navigation_links' %>
     </ul>
-  </div>
+    <!-- End Right Navigation Links -->
+
+    <!-- Left Navigation Links (Never change) -->
+    <ul class="left">
+      <li><a href="#">Left Nav Button</a></li>
+    </ul>
+    <!-- End Left Navigation Links -->
+  </section>
 </nav>
