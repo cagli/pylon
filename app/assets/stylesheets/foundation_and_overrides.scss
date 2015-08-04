@@ -95,7 +95,7 @@ $include-html-global-classes: $include-html-classes;
 // $font-weight-normal: normal;
 // $font-weight-bold: bold;
 
-// $white       : #FFFFFF;
+$white       : #FFFFFF;
 // $ghost       : #FAFAFA;
 // $snow        : #F9F9F9;
 // $vapor       : #F6F6F6;
@@ -116,7 +116,7 @@ $include-html-global-classes: $include-html-classes;
 // $black       : #000000;
 
 // We use these as default colors throughout
-$primary-color: #6441A5;
+$primary-color: #512DA8;
 // $secondary-color: #e7e7e7;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
@@ -124,7 +124,7 @@ $primary-color: #6441A5;
 // $info-color: #a0d3e8;
 
 // We use these to control various global styles
-$body-bg: #E1E1E1;
+$body-bg: $white;
 // $body-font-color: $jet;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
@@ -1401,7 +1401,7 @@ $menu-slide: "transform 0.5s ease-in-out";
 
 // Background color for the top bar
 // $topbar-bg-color: $primary-color;
-$topbar-bg: linear-gradient(180deg, #6441A5 10%, #2a0845 90%);
+$topbar-bg: $primary-color;
 
 // Height and margin
 // $topbar-height: rem-calc(45);

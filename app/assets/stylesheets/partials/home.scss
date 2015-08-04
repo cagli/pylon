@@ -1,19 +1,14 @@
 body {
-	background-color: #FFFFFF;
 	-webkit-font-smoothing: antialiased;
 }
 
-h1,
+.hero h1,
 h3,
 h4,
 p {
 	color: #FFFFFF;
 	text-align: center;
 	padding: 20px 0;
-}
-
-i {
-		font-size: 4em;
 }
 
 nav {
@@ -53,6 +48,13 @@ nav {
 .content {
 	width: 100%;
 	padding: 100px 0;
+}
+
+.features,
+.cours {
+	i {
+		font-size: 4em;
+	}
 }
 
 .cours,

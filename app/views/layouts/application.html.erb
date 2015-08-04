@@ -12,39 +12,61 @@
   </head>
   <body>
     
-    <div class="off-canvas-wrap" data-offcanvas>
+    <%if user_signed_in? %>
 
-      <!-- Top Bar (Outside of Canvas) -->
-      <header class="sticky">
-        <%= render 'layouts/navigation' %>
-      </header>
-      <!-- End Top Bar -->
+    <!-- User (if logged in) = Top-bar and Off-canvas menu available -->
 
-      <main class="inner-wrap">
+      <div class="off-canvas-wrap" data-offcanvas>
 
-        <!-- Off Canvas Menu -->
-        <aside class="left-off-canvas-menu">
-          <ul class="off-canvas-list">
-            <li><a href="#"><i class="fi-home"></i><span>Acceuil</span></a></li>
-            <li><a href="#"><i class="fi-torso"></i><span>Profile</span></a></li>
-            <li><a href="#"><i class="fi-star"></i><span>Favoris</span></a></li>
-            <li><a href="#"><i class="fi-target"></i><span>Objectifs</span></a></li>
-            <li><a href="#"><i class="fi-trophy"></i><span>Accomplissements</span></a></li>
-            <li><a href="#"><i class="fi-graph-bar"></i><span>Statistiquess</span></a></li>
-            <li><a href="#"><i class="fi-comments"></i><span>Forum</span></a></li>
-            <li><a href="#"><i class="fi-power"></i><span>Déconnexion</span></a></li>
-          </ul>
-        </aside>
-        <!-- End Off Canvas Menu -->
+        <!-- Top Bar (Fixed and Outside of Off-canvas) -->
+        <header class="fixed">
+          <%= render 'layouts/navigation' %>
+        </header>
+        <!-- End Top Bar -->
 
-        <!-- Main Content of the Page Goes Here -->
+        <main class="inner-wrap">
+
+          <!-- Off Canvas Menu -->
+          <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list">
+              <li><a href="#"><i class="fi-home"></i><span>Portail</span></a></li>
+              <li><a href="#"><i class="fi-torso"></i><span>Cours</span></a></li>
+              <li><a href="#"><i class="fi-star"></i><span>Favoris</span></a></li>
+              <li><a href="#"><i class="fi-target"></i><span>Objectifs</span></a></li>
+              <li><a href="#"><i class="fi-trophy"></i><span>Accomplissements</span></a></li>
+              <li><a href="#"><i class="fi-graph-bar"></i><span>Statistiquess</span></a></li>
+              <li><a href="#"><i class="fi-comments"></i><span>Forum</span></a></li>
+              <li><%= link_to('Déconnexion', destroy_user_session_path, :method => :delete) %></li>
+            </ul>
+          </aside>
+          <!-- End Off Canvas Menu -->
+
+      
+          <!-- Main Content of the Page -->
           <%= render 'layouts/messages' %>
           <%= yield %>
+          <!-- End Main Content of the Page -->
 
-        <!-- Close the Off-canvas Menu -->
-        <a class="exit-off-canvas"></a>
-      </main>
-    </div>
+          <!-- Close the Off-canvas Menu -->
+          <a class="exit-off-canvas"></a>
+        </main>
+      </div>
+
+    <% else %>
     
+    <!-- Visitor (not logged in) = Top-bar and Off-canvas menu not available -->
+
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+
+      <!-- Invisible signupModal -->
+      <div id="signupModal" class="reveal-modal" data-reveal>
+        <%= render 'devise/sessions/new' %>
+        <a class="close-reveal-modal">&#215;</a>
+      </div>
+      <!-- End Invisible signupModal -->
+
+    <% end %>
+ 
   </body>
 </html>

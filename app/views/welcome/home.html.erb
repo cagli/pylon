@@ -1,13 +1,4 @@
-<div class="row">
-	<ul class="breadcrumbs">
-		<li><%= link_to "Acceuil", welcome_path('home') %></li>
-	  	<li><%= link_to "Contact", welcome_path('contact') %></li>
-	  	<li><%= link_to "Fonctionnalités", welcome_path('features') %></li>
-	  	<li><%= link_to "Abonnement", welcome_path('payment') %></li>
-	  	<li><%= link_to "Termes et Conditions", welcome_path('terms') %></li>
-	  	<li><%= link_to "Cours", courses_path %></li>
-	</ul>
-</div>
+<!-- Main Banner (Hero) -->
 <div class="hero">
 	<div class="row"> 
 		<nav>
@@ -27,6 +18,9 @@
 		</div>
 	</div>
 </div>
+<!-- End Main Banner (Hero) -->
+
+<!-- Features Row -->
 <div class="features">
 	<div class="row">
 		<div class="large-4 columns">
@@ -43,6 +37,9 @@
 		</div>
 	</div>
 </div>
+<!-- End Features Row -->
+
+<!-- Courses Row -->
 <div class="cours">
 	<div class="row">
 		<h3>Un nombre de cours en ligne incroyable, à portée de main.</h3>
@@ -62,6 +59,9 @@
 		</div>
 	</div>
 </div>
+<!-- End Courses Row -->
+
+<!-- Team Row -->
 <div class="team">
 	<div class="row">
 		<div class="large-8 large-centered columns">
@@ -92,6 +92,9 @@
 		</div>
 	</div>
 </div>
+<!-- End Team Row -->
+
+<!-- Quick Signup Row -->
 <div class="signup">
 	<div class="row">
 		<div class="large-6 large-centered columns">
@@ -115,6 +118,9 @@
 		</div>
 	</div>
 </div>
+<!-- End Quick Signup Row -->
+
+<!-- Pricing Row -->
 <div class="pricing">
   	<div class="row">
   		<div class="large-5 large-centered columns">
@@ -131,7 +137,7 @@
 				  <li class="bullet-item">1 Database</li>
 				  <li class="bullet-item">5GB Storage</li>
 				  <li class="bullet-item">20 Users</li>
-				  <li class="cta-button"><a class="button" href="#" data-reveal-id="inscriModal">Souscrire</a></li>
+				  <li class="cta-button"><a class="button" href="#">Souscrire</a></li>
 				</ul>
 			</div>
 			<div class="large-6 columns">
@@ -142,12 +148,15 @@
 				  <li class="bullet-item">1 Database</li>
 				  <li class="bullet-item">5GB Storage</li>
 				  <li class="bullet-item">20 Users</li>
-				  <li class="cta-button"><a class="button" href="#" data-reveal-id="inscriModal">Souscrire</a></li>
+				  <li class="cta-button"><a class="button" href="#">Souscrire</a></li>
 				</ul>
 			</div>
 		</div>
   	</div>
 </div>
+<!-- End Pricing Row -->
+
+<!-- Other Contents Row -->
 <div class="content">
 	<div class="row">
 		<div class="large-4 columns">
@@ -166,7 +175,4 @@
 		</div>
 	</div>
 </div>
-<div id="signupModal" class="reveal-modal" data-reveal>
-    <%= render 'devise/sessions/new' %>
-    <a class="close-reveal-modal">&#215;</a>
-</div>
+<!-- End Other Contents Row -->
