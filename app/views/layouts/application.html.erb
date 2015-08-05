@@ -14,15 +14,14 @@
     
     <%if user_signed_in? %>
 
-    <!-- User (if logged in) = Top-bar and Off-canvas menu available -->
-
+      <!-- User (if logged in) = Dashboard Top-bar + Off-canvas menu -->
       <div class="off-canvas-wrap" data-offcanvas>
 
-        <!-- Top Bar (Fixed and Outside of Off-canvas) -->
-        <header class="fixed">
-          <%= render 'layouts/navigation' %>
-        </header>
-        <!-- End Top Bar -->
+        <!-- Top-bar (fixed + outside of Off-canvas) -->
+        <div class="fixed">
+          <%= render 'layouts/dashboard_nav' %>
+        </div>
+        <!-- End Top-bar -->
 
         <main class="inner-wrap">
 
@@ -41,11 +40,10 @@
           </aside>
           <!-- End Off Canvas Menu -->
 
-      
-          <!-- Main Content of the Page -->
+          <!-- Main content of the page -->
           <%= render 'layouts/messages' %>
           <%= yield %>
-          <!-- End Main Content of the Page -->
+          <!-- End Main content -->
 
           <!-- Close the Off-canvas Menu -->
           <a class="exit-off-canvas"></a>
@@ -54,10 +52,16 @@
 
     <% else %>
     
-    <!-- Visitor (not logged in) = Top-bar and Off-canvas menu not available -->
+      <!-- Visitor (not logged in) = Simple fixed home top-bar -->
+      <div class="contain-to-grid fixed">
+        <%= render 'layouts/home_nav' %>
+      </div>
+      <!-- End Top-bar -->
 
+      <!-- Main content of the page -->
       <%= render 'layouts/messages' %>
       <%= yield %>
+      <!-- End Main content -->
 
       <!-- Invisible signupModal -->
       <div id="signupModal" class="reveal-modal" data-reveal>

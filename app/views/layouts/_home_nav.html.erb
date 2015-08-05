@@ -1,0 +1,20 @@
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to 'Pylon', root_path %></h1>
+    </li>
+    <!-- For Responsive design on smaller devices : -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone. -->
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+	    <li><a href="#">Fonctionnalités</a></li>
+	    <li><a href="#">Abonnement</a></li>
+	    <li><%= link_to 'Connexion', '#', data: {:'reveal-id' => "signupModal"} %></li>
+		<li><%= link_to('Inscription', new_user_registration_path) %></li>
+    </ul>
+  </section>
+</nav>
