@@ -32,7 +32,7 @@ protected
 
   # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)
-    root_path
+     welcome_path('home')
   end
   def after_sign_in_path_for(resource)
      # After you enter login info and click submit, I want you to be sent to the dashboard page
