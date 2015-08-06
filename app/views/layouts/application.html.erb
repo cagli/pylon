@@ -11,12 +11,66 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
-    <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
-    </main>
+    
+    <%if user_signed_in? %>
+
+      <!-- User (if logged in) = Dashboard Top-bar + Off-canvas menu -->
+      <div class="off-canvas-wrap" data-offcanvas>
+
+        <!-- Top-bar (fixed + outside of Off-canvas) -->
+        <div class="fixed">
+          <%= render 'layouts/dashboard_nav' %>
+        </div>
+        <!-- End Top-bar -->
+
+        <main class="inner-wrap">
+
+          <!-- Off Canvas Menu -->
+          <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list">
+              <li><a href="#"><i class="fi-home"></i><span>Portail</span></a></li>
+              <li><a href="#"><i class="fi-torso"></i><span>Cours</span></a></li>
+              <li><a href="#"><i class="fi-star"></i><span>Favoris</span></a></li>
+              <li><a href="#"><i class="fi-target"></i><span>Objectifs</span></a></li>
+              <li><a href="#"><i class="fi-trophy"></i><span>Accomplissements</span></a></li>
+              <li><a href="#"><i class="fi-graph-bar"></i><span>Statistiquess</span></a></li>
+              <li><a href="#"><i class="fi-comments"></i><span>Forum</span></a></li>
+              <li><%= link_to('Déconnexion', destroy_user_session_path, :method => :delete) %></li>
+            </ul>
+          </aside>
+          <!-- End Off Canvas Menu -->
+
+          <!-- Main content of the page -->
+          <%= render 'layouts/messages' %>
+          <%= yield %>
+          <!-- End Main content -->
+
+          <!-- Close the Off-canvas Menu -->
+          <a class="exit-off-canvas"></a>
+        </main>
+      </div>
+
+    <% else %>
+    
+      <!-- Visitor (not logged in) = Simple fixed home top-bar -->
+      <div class="contain-to-grid fixed">
+        <%= render 'layouts/home_nav' %>
+      </div>
+      <!-- End Top-bar -->
+
+      <!-- Main content of the page -->
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+      <!-- End Main content -->
+
+      <!-- Invisible signupModal -->
+      <div id="signupModal" class="reveal-modal" data-reveal>
+        <%= render 'devise/sessions/new' %>
+        <a class="close-reveal-modal">&#215;</a>
+      </div>
+      <!-- End Invisible signupModal -->
+
+    <% end %>
+ 
   </body>
 </html>

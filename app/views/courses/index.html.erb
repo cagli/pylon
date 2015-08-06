@@ -45,27 +45,20 @@ The time is now: <%= Time.now %>
 
 <%= link_to 'New Course', new_course_path %>
 
-
-
-
 <%= form_tag("/search", method: "get") do %>
   <%= label_tag(:q, "Search for:") %>
   <%= text_field_tag(:q) %>
   <%= submit_tag("Search") %>
 <% end %>
 
-
 <%= form_tag do %>
   Form contents
 <% end %>
-
 
 <%= check_box_tag(:pet_dog) %>
 <%= label_tag(:pet_dog, "I own a dog") %>
 <%= check_box_tag(:pet_cat) %>
 <%= label_tag(:pet_cat, "I own a cat") %>
-
-
 
 <%= radio_button_tag(:age, "child") %>
 <%= label_tag(:age_child, "I am younger than 21") %>
@@ -117,5 +110,4 @@ autresr <br>
   <%=h role.name %>
 </div>
 <% end %>
-
-
+</div>

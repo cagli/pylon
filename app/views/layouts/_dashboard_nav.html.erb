@@ -1,0 +1,31 @@
+<nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
+  <ul class="title-area">
+    <li class="name left-off-canvas-toggle">
+      <h1><a href="#"><i class="fi-list"></i><span>Pylon</span></a></h1>
+    </li>
+    <!-- For Responsive design on smaller devices : -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone. -->
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Navigation Links -->
+    <ul class="right">
+      <li class="divider"></li>
+      <li><a href="#"><i class="fi-trophy"></i><span>Points<span></a></li>
+      <li class="divider"></li>
+      <li class="has-dropdown">
+        <a href="#"><i class="fi-torso"></i><span>Profile<span></a>
+        <ul class="dropdown">
+          <li><a href="#">Compte</a></li>
+          <li><a href="#">Reglages</a></li>
+        </ul>
+      </li>
+      <li class="divider"></li>
+      <li><a href="#"><i class="fi-comments"></i><span>Alertes<span></a></li>
+      <li class="divider"></li>
+      <li><%= link_to('Déconnexion', destroy_user_session_path, :method => :delete) %></li>
+    </ul>
+    <!-- End Right Navigation Links -->
+  </section>
+</nav>

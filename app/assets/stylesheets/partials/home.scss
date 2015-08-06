@@ -1,0 +1,75 @@
+body {
+	-webkit-font-smoothing: antialiased;
+}
+
+.hero {
+	padding: 200px 0;
+	background: linear-gradient(rgba(81,45,168,0.6), rgba(81,45,168,0.6)),
+	transparent url(asset_path(#{"coding.jpg"})) no-repeat center top;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.hero h1,
+h3,
+h4,
+p {
+	color: #FFFFFF;
+	text-align: center;
+	padding: 20px 0;
+}
+
+.features,
+.cours,
+.team,
+.signup,
+.pricing,
+.content {
+	width: 100%;
+	padding: 100px 0;
+}
+
+.features,
+.cours {
+	i {
+		font-size: 4em;
+	}
+}
+
+.cours,
+.signup,
+.content {
+	background-color: #512DA8;
+}
+
+.features {
+	h4,
+	p {
+		color: #512DA8;
+		padding: 10px 0;
+	}
+}
+
+.team {
+	background: linear-gradient(rgba(81,45,168,0.3), rgba(81,45,168,0.3)),
+	transparent url(asset_path(#{"macbook.jpg"})) no-repeat center top;
+	background-size: cover;
+	background-attachment: fixed;
+	.profile-photo {
+		height: 100px;
+		width: 100px;
+		background: url(asset_path(#{"brouchey.jpg"})) no-repeat center;
+		background-size: cover;
+		border-radius: 50%;
+		border: 1px solid #FFFFFF;
+		margin: 0 auto;
+	}
+}
+
+.pricing {
+	h3 {
+		color: #512DA8;
+		padding-bottom: 80px;
+	}
+}
+
