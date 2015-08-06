@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+
+
+
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+
+<h1>Ma photo</h1>
+
+<h1>Mon dernier cours</h1>
+
+<h1>Mes cours</h1>
+<h2><%= current_user.email %>
+</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Modules</th>
+      <th>Description</th>
+      <th>course_icon</th>
+      <th>Category</th>
+      <th>Level</th>
+      <th>Teacher</th>
+      <th>Learning skills</th>
+      <th>Points</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  
+<br>
+
+
+
+<%= form_tag do %>
+  Form contents
+<% end %>
+
+
+
+<h1>je te laisse le code en dessous car comme ca tu as une idee des formtag avec ruby</h1>
+
+<%= check_box_tag(:pet_dog) %>
+<%= label_tag(:pet_dog, "I own a dog") %>
+<%= check_box_tag(:pet_cat) %>
+<%= label_tag(:pet_cat, "I own a cat") %>
+
+
+
+<%= radio_button_tag(:age, "child") %>
+<%= label_tag(:age_child, "I am younger than 21") %>
+<%= radio_button_tag(:age, "adult") %>
+<%= label_tag(:age_adult, "I'm over 21") %>
+
+

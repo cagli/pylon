@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-# get 'chapters/index'
-get "welcome/:page" => "welcome#show", :as => 'welcome'
-root "welcome#show", page: "home"
- get 'welcome/home'
+
+
+  get "welcome/:page" => "welcome#show", :as => 'welcome'
+  get "dashboard/:page" => "dashboard#show", :as => 'dashboard'
+
+  root "welcome#show", page: "home"
+ 
+  get 'welcome/home'
   get 'welcome/contact'
-  # root 'courses#index'
-# root "devise/sessions#new"
+  get 'dashboard/dashboard'
+
+
 
 devise_for :user
 	resources :courses do 
@@ -17,10 +22,9 @@ end
 devise_scope :user do
   unauthenticated :user do
   	root "welcome#home", as: :unauthenticated_root
-  # root 'devise/sessions#new', as: :unauthenticated_root
   end
   authenticated :user do
-  root 'courses#index', as: :authenticated_root
+    root 'dashboard#dashboard', as: :authenticated_root
   end
 end
 
