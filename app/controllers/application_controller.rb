@@ -6,9 +6,24 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+
+
+def courses
+    @courses = Course.all
+end
+helper_method :courses
+
 #   def sign_up_params
 #   devise_parameter_sanitizer.sanitize(:sign_up)
 # end
+
+# def self.exposes(*ivars)
+#     ivars.each do |ivar|
+#       attr_reader ivar.to_sym
+#       helper_method ivar.to_sym
+#     end
+#   end
+
 
 protected
 
@@ -34,10 +49,11 @@ protected
   def after_sign_out_path_for(resource_or_scope)
      welcome_path('home')
   end
-  def after_sign_in_path_for(resource)
-     # After you enter login info and click submit, I want you to be sent to the dashboard page
-     dashboard_path('dashboard')
-   end
+  # def after_sign_in_path_for(resource)
+  #    # After you enter login info and click submit, I want you to be sent to the dashboard page
+  #    # courses_path
+  #    dashboard_path('dashboard')
+  #  end
    
 
 

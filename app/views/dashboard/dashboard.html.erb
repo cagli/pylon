@@ -2,21 +2,32 @@
 
 
 
+Pour Ben: 
 
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-<% end %>
+Affichage du nom de lusername et de l email : <br>
+Username: <%= current_user.email %> <br>
+Pseudo: <%= current_user.username %> <br>
 
+
+Affichage des cours avec le titre avec phrase de description
+
+
+Les cours que l utilisateur a bookmarké 
+Les cours que l'utilisateur a commencé
+les cours que  l'utilisateur a ecarté
+
+
+
+
+<%= link_to 'NEW course', new_course_path %>
+<%= link_to 'CREATE course', courses_path %>
 
 <h1>Ma photo</h1>
 
 <h1>Mon dernier cours</h1>
 
 <h1>Mes cours</h1>
-<h2><%= current_user.email %>
-</h2>
+
 
 <table>
   <thead>
@@ -34,24 +45,52 @@
       <th colspan="3"></th>
     </tr>
   </thead>
+  </thead>
 
+  <tbody>
+     
+<% courses.each do |course| %>
+
+      <tr> 
+        <td><%= course.course_id %></td>
+        <td><%= course.title %></td>
+        <td><%= course.description %></td>
+        <td><%= course.course_icon %></td>
+        <td><%= course.category %></td>
+        <td><%= course.level %></td>
+        <td><%= course.teacher %></td>
+        <td><%= course.learning_skills %></td>
+        <td><%= course.course_points %></td>
+        <td><%= link_to 'Show', course %></td>
+
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
   
+
+
+
+<br><br><br>
+
+
+
+<h2>je te laisse le code en dessous car comme ca tu as une idee des formtag avec ruby</h2>
+
 <br>
-
-
 
 <%= form_tag do %>
   Form contents
 <% end %>
-
-
-
-<h1>je te laisse le code en dessous car comme ca tu as une idee des formtag avec ruby</h1>
+<br>
 
 <%= check_box_tag(:pet_dog) %>
 <%= label_tag(:pet_dog, "I own a dog") %>
 <%= check_box_tag(:pet_cat) %>
 <%= label_tag(:pet_cat, "I own a cat") %>
+<br>
+<br>
 
 
 
@@ -59,5 +98,14 @@
 <%= label_tag(:age_child, "I am younger than 21") %>
 <%= radio_button_tag(:age, "adult") %>
 <%= label_tag(:age_adult, "I'm over 21") %>
+
+<br>
+<br>
+
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
 
 

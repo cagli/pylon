@@ -1,18 +1,24 @@
 class CoursesController < ApplicationController
 
   before_action :authenticate_user!
-  # , :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy]
+
+ attr_reader :courses
+ helper_method :courses
+ @courses = Course.all
 
   # GET /courses
   # GET /courses.json
   def index
     @courses = Course.all
+    # @courses = Course.scoped
   end
 
   # GET /courses/1
   # GET /courses/1.json
-  # def show
-  # end
+  def show
+    # @course = Course.find(params[:id])
+ end
 
   # GET /courses/new
   def new
@@ -63,7 +69,7 @@ class CoursesController < ApplicationController
     end
   end
 
-  private
+  # private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
       @course = Course.find(params[:id])
