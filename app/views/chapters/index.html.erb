@@ -1,37 +1,50 @@
-<h1><%=@course.title%> Chapters</h1>
+
+<%= link_to '<i class="fi-arrow-left"></i> librairie'.html_safe, courses_path() %>
+<h1><%=@course.title%></h1>
+<h1><%= 'Description du cours :' + "  "+ @course.description%></h1>
 
 <table>
   <thead>
     <tr>
       <th>Id</th>
       <th>Title</th>
+      <th>Modules</th>
       <th>Description</th>
-      <th>Icon</th>
+      <th>course_icon</th>
+      <th>Category</th>
+      <th>Level</th>
+      <th>Teacher</th>
+      <th>Learning skills</th>
       <th>Points</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-
   <tbody>
-    
-    
+    <%  @course.chapters.each do |chapter| %>
+            <tr>
+
+        <td><%= chapter.chapter_id %></td>
+        <td><%= chapter.title %></td>
+        <td> <%=link_to "lessons", chapter_lessons_path(chapter) %>  </td>
+        <td><%= chapter.description %></td>
+        <td><%= link_to 'Show', chapter %></td>
+        <td><%= link_to 'Edit', edit_chapter_path(chapter) %></td>
+        <td><%= link_to 'Destroy', chapter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+
   </tbody>
-
-
-
 </table>
 
-
-
-
-<ul>
-  <% @course.chapters.each do |chapter| %>
-  <li><%= chapter.title %></li>
-  <% end %>
-</ul>
-
+<%  @course.chapters.each do |chapter| %>
+<br> <br><br> <br><br> <br>
+ <%= "titre du chapitre est : " + chapter.title%>
+<%  chapter.lessons.each do |lesson| %>
 <br>
-
+ <%= "titre de la lecon est : " + lesson.title %>
+    <% end %>
+    <% end %>
+<br> <br><br> <br>
 <%= link_to 'New chapter', new_course_chapter_path %>
 

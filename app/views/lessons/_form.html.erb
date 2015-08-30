@@ -1,0 +1,14 @@
+C'est la forme
+
+
+<%= form_for [@chapter, @lesson] do |f| %>
+
+  <%= f.label :lesson_id %>
+  <%= f.text_field :lesson_id %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit "Save" %>
+<% end %>

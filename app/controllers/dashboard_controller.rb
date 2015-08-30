@@ -14,8 +14,6 @@ def show
       File.exist?(Pathname.new(Rails.root + "app/views/dashboard/#{params[:page]}.html.erb"))
     end
   
-def dashboard
-    @courses = Course.all
-    # @courses = Course.scoped
-  end
+
+  
   end

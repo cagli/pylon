@@ -1,29 +1,22 @@
 <div class="row">
 <h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :login %><br />
-    <%= f.text_field :login, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-      </div>
-    <% end -%>
-
-    <div class="actions">
-      <%= f.submit "Log in" %>
-    </div>
-  <% end %>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+ 
+  <%= f.input :login, label: 'Adresse e-mail ou pseudonyme', error: 'Username or Email is mandatory, please specify one' %>
+  <%= f.input :password, label: 'Mot de passe' %>
+  <%= f.input :remember_me, as: :boolean, inline_label: 'Garder ma session active' %>
+  <%= f.button :submit, "Connexion" %>
+<% end %>
 
   <%= render "devise/shared/links" %>
+
+
+
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= f.input :username %>
+  <%= f.input :username, collection: 18..60 %>
+  <%= f.button :submit %>
+<% end %>
+
 </div>

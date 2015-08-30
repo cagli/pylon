@@ -1,21 +1,29 @@
 Rails.application.routes.draw do
 
 
-  get "welcome/:page" => "welcome#show", :as => 'welcome'
-  get "dashboard/:page" => "dashboard#show", :as => 'dashboard'
- 
-  get 'welcome/home'
-  get 'welcome/contact'
-  # get 'dashboard/dashboard'
+
+get "welcome/:page" => "welcome#show", :as => 'welcome'
+get "dashboard/:page" => "dashboard#show", :as => 'dashboard'
+
+get 'welcome/home'
+get 'welcome/contact'
+get 'dashboard/dashboard'
 
 
 
-devise_for :user
-	resources :courses do 
-		resources :chapters
+devise_for :user 
+
+scope shallow_path: "short" do
+  resources :courses do
+  	resources :chapters, shallow: true
+  end
+
+
+  resources :chapters do 
+       resources :lessons, shallow: true
+  end
+
 end
-
-
 
 # devise_scope :user do
   unauthenticated :user do
@@ -27,3 +35,4 @@ end
 # end
 
 end
+# end

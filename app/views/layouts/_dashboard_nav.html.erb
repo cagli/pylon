@@ -14,13 +14,10 @@
       <li class="divider"></li>
       <li><a href="#"><i class="fi-trophy"></i><span>Points<span></a></li>
       <li class="divider"></li>
-      <li class="has-dropdown">
-        <a href="#"><i class="fi-torso"></i><span>Profile<span></a>
-        <ul class="dropdown">
-          <li> <%= link_to "compte", dashboard_path('profile') %></li>
-          <li><a href="#">Reglages</a></li>
-        </ul>
-      </li>
+      
+      <li><%= link_to '<i class="fi-torso"></i>'.html_safe + " " + current_user.username, dashboard_path('profile')%></li>
+       
+      
       <li class="divider"></li>
       <li><a href="#"><i class="fi-comments"></i><span>Alertes<span></a></li>
       <li class="divider"></li>

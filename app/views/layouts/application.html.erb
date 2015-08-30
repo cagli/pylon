@@ -28,8 +28,8 @@
           <!-- Off Canvas Menu -->
           <aside class="left-off-canvas-menu">
             <ul class="off-canvas-list">
-              <li><a href="#"><i class="fi-home"></i><span>Portail</span></a></li>
-              <li><a href="#"><i class="fi-torso"></i><span>Cours</span></a></li>
+              <li><span><%= link_to '<i class="fi-home"></i> Home'.html_safe, dashboard_dashboard_path %></span></li>
+              <li><span><%= link_to '<i class="fi-book"></i> Librairie'.html_safe, dashboard_path('librairie')%></span></li>
               <li><a href="#"><i class="fi-star"></i><span>Favoris</span></a></li>
               <li><a href="#"><i class="fi-target"></i><span>Objectifs</span></a></li>
               <li><a href="#"><i class="fi-trophy"></i><span>Accomplissements</span></a></li>

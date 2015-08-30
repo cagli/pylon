@@ -1,7 +1,7 @@
 class ChaptersController < ApplicationController
 
   # before_action :set_chapter, only: [:show, :edit, :update, :destroy]
-
+before_action :authenticate_user!
 
 
 def index
@@ -21,8 +21,8 @@ def index
   end
 
   # GET /chapters/1/edit
-  # def edit
-  # end
+  def edit
+  end
 
   # POST /chapters
   # POST /chapters.json

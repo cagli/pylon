@@ -1,4 +1,4 @@
-<%= form_for(@course) do |f| %>
+<%= simple_form_for(@course) do |f| %>
   <% if @course.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
@@ -28,6 +28,8 @@
     <%= f.text_field :course_icon %>
   </div>
   <div class="field">
+  <%= f.input :category, label: :category, collection: ['néophyte','débutant','intermédiaire','avancé','expert'], selected: 'intermédiaire' %>
+
     <%= f.label :category %><br>
     <%= f.text_area :category %>
   </div>
@@ -48,7 +50,7 @@
     <%= f.text_field :course_points %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+     <%= f.button :submit, "Création du cours ?" %>
   </div>
 <% end %>
 
