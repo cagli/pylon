@@ -1,4 +1,6 @@
-<%= form_for [@course, @chapter] do |f| %>
+
+<%= simple_form_for([@course, @chapter], remote: request.xhr?, html: { data: { modal: true } })  do |f| %>
+
 
   <%= f.label :id %>
   <%= f.text_field :id %>

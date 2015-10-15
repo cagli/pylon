@@ -17,7 +17,11 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
-    # @course = Course.find(params[:id])
+    @course = Course.find(params[:id])
+    # @chapter = Chapter.find(params[:id])
+
+    authorize! :read, @course
+
  end
 
   # GET /courses/new
@@ -27,13 +31,17 @@ class CoursesController < ApplicationController
 
   # GET /courses/1/edit
   def edit
+    authorize! :edit, @course 
+   #  respond_to do |format|
+   #       format.html {render :layout => false} #add this line.
+   # end
   end
 
   # POST /courses
   # POST /courses.json
   def create
     @course = Course.new(course_params)
-
+    authorize! :create, @course
     respond_to do |format|
       if @course.save
         format.html { redirect_to @course, notice: 'Course was successfully created.' }

@@ -2,7 +2,8 @@ class ChaptersController < ApplicationController
 
   # before_action :set_chapter, only: [:show, :edit, :update, :destroy]
 before_action :authenticate_user!
-
+     # @chapter = Chapter.find(params[:id])
+# layout false
 
 def index
      @course = Course.find(params[:course_id])
@@ -18,22 +19,32 @@ def index
   def new
     @course = Course.find(params[:course_id])
     @chapter = @course.chapters.new
+    # code below remove layout from modal
+    respond_to do |format|
+         format.html {render :layout => false} #add this line.
+   end
   end
 
   # GET /chapters/1/edit
   def edit
+    respond_to do |format|
+         format.html {render :layout => false} #add this line.
+   end
   end
 
   # POST /chapters
   # POST /chapters.json
   def create
+
     @course = Course.find(params[:course_id])
     @chapter = @course.chapters.new(chapter_params)
+    # respond_modal_with @chapter, location: root_path
+
   if @chapter.save
-    flash[:success] = "ajout d'un chapter"
-    redirect_to course_chapters_path
+    flash[:success] = "ajout d'un chapitre"
+    redirect_to course_path(@course)
   else
-    flash[:error] = "problem d'ajout chapter"
+    flash[:error] = "problem d'ajout d'un chapitre"
     render action: :new
 end
 

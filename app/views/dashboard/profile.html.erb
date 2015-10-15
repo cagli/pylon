@@ -1,40 +1,20 @@
-hello cette page est mon profile
-<table>
-  <thead>
-    <tr>
-      <th>Photo</th>
-      <th>Pseudo</th>
-      <th>Prénom</th>
-      <th>Nom</th>
-      <th>Mail</th>
-      <th>Ville</th>
-      <th>Code Postal</th>
-      <th>Pays</th>
-      <th>skills</th>
-      <th>Points</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  </thead>
+<H1> My Profile</H1>
 
-  <tbody>
+
+
      
-      <tr> 
-        <td><%= current_user.username%></td>
-        <td><%= current_user.username %></td>
-        <td><%= current_user.first_name %></td>
-        <td><%= current_user.last_name %></td>
-        <td><%= current_user.email %></td>
-        <td><%= current_user.username %></td>
-        <td><%= current_user.username %></td>
-        <td><%= current_user.username %></td>
-        <td><%= current_user.username %></td>
-        <td><%= current_user.username %></td>
+     <h1> <%= current_user.username%></h1> 
+     <br>   
+     <%= current_user.first_name + " " + current_user.last_name%>
+     <br>
+     <%= current_user.email %>
+     <%= button_to "Editer Profile", @article, remote: true %>
 
-      </tr>
+
     
 
-  </tbody>
-</table>
+ 
   
   <%= render "devise/registrations/edit" %>
+
+ 

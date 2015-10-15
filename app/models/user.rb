@@ -1,14 +1,15 @@
 class User < ActiveRecord::Base
+  mount_uploader :avatar, AvatarUploader
+  rolify :before_add => :before_add_method
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-belongs_to :role
+# belongs_to :role
 
 	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:login]
 
 
-
-           before_create :set_default_role
+           # before_create :set_default_role
 
 
 def login=(login)
@@ -31,11 +32,13 @@ def login=(login)
 
 
   private
-  def set_default_role
-    self.role ||= Role.find_by_name('registered')
-  end
+  # def set_default_role
+  #   self.role ||= Role.find_by_name('registered')
+  # end
 
  
-
+def before_add_method(role)
+    # do something before it gets added
+  end
 
 end

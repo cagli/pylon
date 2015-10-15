@@ -1,6 +1,103 @@
-<h1>Editing Course</h1>
+<h1>Modification du cours : <%=@course.title %></h1>
 
-<%= render 'form' %>
 
-<%= link_to 'Show', @course %> |
-<%= link_to 'Back', courses_path %>
+
+
+<p id="notice"><%= notice %>
+
+<h2><%= link_to '<i class="fi-arrow-left"></i> Librairie'.html_safe, courses_path %></h2>
+
+
+<h1><%=@course.title%></h1>
+<h1><%= 'Description du cours :' + "  "+ @course.description%></h1>
+
+
+<br>
+  <h1>Id:</h1>
+  <%= @course.course_id %>
+
+
+<br>
+  Title:
+  <%= @course.title %>
+
+
+<br>
+  Description:
+  <%= @course.description %>
+
+
+<br>
+  icon:
+  <%= @course.course_icon %>
+
+
+<br>
+  Category:
+  <%= @course.category %>
+
+
+<br>
+  Level:
+  <%= @course.level %>
+
+
+<br>
+  Teacher:
+  <%= @course.teacher %>
+
+
+<br>
+  Learning skills:
+  <%= @course.learning_skills %>
+
+
+<br>
+  Points:
+  <%= @course.course_points %>
+ 
+<%= link_to 'Edit', '#', data: {:'reveal-id' => "EditCourse"} %>
+
+
+<ul id="sortable">
+<%  @course.chapters.each do |chapter| %>
+<br> <br><br> <br><br> <br>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><%= "titre du chapitre est : " + chapter.title%>
+<%  chapter.lessons.each do |lesson| %>
+<br>
+<%= link_to lesson do %>
+ <%= "titre de la lecon est : " + lesson.title %>
+ </li>
+<% end %>
+  </ul>
+
+
+
+
+    <% end %>
+    <br> <br>
+    
+ <%= link_to "Nouvelle Leçon", new_chapter_lesson_path(chapter) , data: {:"reveal-id" => "myModal", :"reveal-ajax" => true} %>
+
+ 
+
+
+    <% end %>
+<br> <br><br> <br>
+<%= link_to "Nouveau Chapitre", new_course_chapter_path(@course) , data: {:"reveal-id" => "myModal", :"reveal-ajax" => true} %>
+
+
+<br> 
+
+<%= link_to 'Voir le cours', @course %> |
+
+
+ <div id="myModal" class="reveal-modal" data-reveal>
+  
+ </div>
+
+
+	<div id="EditCourse" class="reveal-modal" data-reveal>
+	<%= render 'form' %>
+	<a class="close-reveal-modal">&#215;</a>
+	</div>

@@ -8,6 +8,7 @@
     <%# Modernizr is required for Zurb Foundation %>
     <%= javascript_include_tag 'vendor/modernizr' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -18,7 +19,7 @@
       <div class="off-canvas-wrap" data-offcanvas>
 
         <!-- Top-bar (fixed + outside of Off-canvas) -->
-        <div class="fixed">
+        <div class="sticky">
           <%= render 'layouts/dashboard_nav' %>
         </div>
         <!-- End Top-bar -->
@@ -29,7 +30,7 @@
           <aside class="left-off-canvas-menu">
             <ul class="off-canvas-list">
               <li><span><%= link_to '<i class="fi-home"></i> Home'.html_safe, dashboard_dashboard_path %></span></li>
-              <li><span><%= link_to '<i class="fi-book"></i> Librairie'.html_safe, dashboard_path('librairie')%></span></li>
+              <li><span><%= link_to '<i class="fi-book"></i> Librairie'.html_safe, courses_path%></span></li>
               <li><a href="#"><i class="fi-star"></i><span>Favoris</span></a></li>
               <li><a href="#"><i class="fi-target"></i><span>Objectifs</span></a></li>
               <li><a href="#"><i class="fi-trophy"></i><span>Accomplissements</span></a></li>
@@ -64,6 +65,9 @@
       <!-- End Main content -->
 
       <!-- Invisible signupModal -->
+      <div id="modal-holder"></div>
+
+
       <div id="signupModal" class="reveal-modal" data-reveal>
         <%= render 'devise/sessions/new' %>
         <a class="close-reveal-modal">&#215;</a>

@@ -1,49 +1,68 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %>
 
-<p>
+<%= link_to '<i class="fi-arrow-left"></i> librairie'.html_safe, courses_path() %>
+<h1><%=@course.title%></h1>
+<h1><%= 'Description du cours :' + "  "+ @course.description%></h1>
+
+ <% if can? :edit, @course %>
+<%= link_to 'Modifier le Cours', edit_course_path(@course) %> 
+<% end %>
+<br>
   <h1>Id:</h1>
   <%= @course.course_id %>
-</p>
 
-<p>
-  <strong>Title:</strong>
+
+<br>
+  Title:
   <%= @course.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
+
+<br>
+  Description:
   <%= @course.description %>
-</p>
 
-<p>
-  <strong>icon:</strong>
+
+<br>
+  icon:
   <%= @course.course_icon %>
-</p>
 
-<p>
-  <strong>Category:</strong>
+
+<br>
+  Category:
   <%= @course.category %>
-</p>
 
-<p>
-  <strong>Level:</strong>
+
+<br>
+  Level:
   <%= @course.level %>
-</p>
 
-<p>
-  <strong>Teacher:</strong>
+
+<br>
+  Teacher:
   <%= @course.teacher %>
-</p>
 
-<p>
-  <strong>Learning skills:</strong>
+
+<br>
+  Learning skills:
   <%= @course.learning_skills %>
-</p>
 
-<p>
-  <strong>Points:</strong>
+
+<br>
+  Points:
   <%= @course.course_points %>
-</p>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+
+
+
+<%@course.chapters.each do |chapter| %>
+<br> <br>
+ <%= "titre du chapitre est : " + chapter.title%>
+<%  chapter.lessons.each do |lesson| %>
+<br>
+<%= link_to lesson do %>
+ <%= "titre de la lecon est : " + lesson.title %> 
+<% end %>
+<% end %>
+<br> 
+<% end %>
+<br>

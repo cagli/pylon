@@ -10,11 +10,15 @@ get 'welcome/contact'
 get 'dashboard/dashboard'
 
 
+# devise_for :user 
 
-devise_for :user 
+ devise_for :users, controllers: {
+        sessions: 'users/sessions'
+      }
+    
 
 scope shallow_path: "short" do
-  resources :courses do
+  resources :courses, :path => "library" do
   	resources :chapters, shallow: true
   end
 
@@ -22,6 +26,7 @@ scope shallow_path: "short" do
   resources :chapters do 
        resources :lessons, shallow: true
   end
+  resources :lessons
 
 end
 

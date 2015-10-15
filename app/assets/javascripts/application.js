@@ -11,10 +11,31 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require turbolinks
 //= require foundation
 //= require_tree .
-$(function() {
-  $(document).foundation();
-});
+var ready;
+ready = function() {
+	$(function() {
+	  $(document).foundation();
+	});
+
+
+	$(function() {
+	  $( "#tabs" ).tabs();
+	 });
+
+
+	// sortable jquery function
+	$(function() {
+	    $( "#sortable" ).sortable();
+	    $( "#sortable" ).disableSelection();
+	  });
+
+
+	};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

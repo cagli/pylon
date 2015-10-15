@@ -7,12 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-[nil, 'registered', 'unpaid', 'moderator', 'teacher', 'admin', 'super_admin'].each do |role|
-  Role.find_or_create_by({name: role})
-end
+# [nil, 'registered', 'unpaid', 'moderator', 'teacher', 'admin', 'super_admin'].each do |role|
+#   Role.find_or_create_by({name: role})
+# end
 
-user = User.new
-user.email = 'michel3@me.com'
-user.password = 'michelminot'
-user.role ||= Role.find_by_name('super_admin')
-user.save!
+# user = User.new
+# user.email = 'toto@me.com'
+# user.password = 'totototo'
+# user.role ||= Role.find_by_name('super_admin')
+# user.save!
