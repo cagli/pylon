@@ -14,4 +14,14 @@
  *= require_self
  */
 @import 'foundation-icons';
+
 @import 'partials/home';
+
+@import 'modules/dashboard_nav';
+@import 'modules/left_sidebar';
+
+@import 'partials/courses';
+
+body {
+    -webkit-font-smoothing: antialiased;
+}

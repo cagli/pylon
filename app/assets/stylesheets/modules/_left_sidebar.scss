@@ -1,0 +1,41 @@
+.left-sidebar {
+    background-color: #512DA8;
+    color: #FFFFFF;
+    display: block;
+    position: fixed;
+    width: 55px;
+    height: 100%;
+    z-index: 1000;
+      overflow: hidden;
+      box-shadow: 1px 0px 2px rgba(0,0,0,0.5);
+      transition: all .7s ease; 
+      a {
+        color: white;
+      }
+      ul li :hover {
+        color: #2BA6CB;
+      }
+      
+}
+
+.propreties-sidebar {
+    list-style: none;
+    margin: 0;
+    white-space: nowrap;
+    li {
+        border-bottom: 1px solid rgba(255, 255, 255, .1);
+        i {
+            font-size: 1.5rem;
+            padding: 0px 20px;
+        }
+    }
+}
+
+.left-sidebar:hover {
+    width: 150px;
+}
+
+.render-page {
+    margin-left: 55px;
+    height: 100%;
+}

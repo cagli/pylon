@@ -1,68 +1,72 @@
-<p id="notice"><%= notice %>
+<div class="row">
 
-<%= link_to '<i class="fi-arrow-left"></i> librairie'.html_safe, courses_path() %>
-<h1><%=@course.title%></h1>
-<h1><%= 'Description du cours :' + "  "+ @course.description%></h1>
+    <p id="notice"><%= notice %>
 
- <% if can? :edit, @course %>
-<%= link_to 'Modifier le Cours', edit_course_path(@course) %> 
-<% end %>
-<br>
-  <h1>Id:</h1>
-  <%= @course.course_id %>
+    <%= link_to '<i class="fi-arrow-left"></i> librairie'.html_safe, courses_path() %>
+    <h1><%=@course.title%></h1>
+    <h1><%= 'Description du cours :' + "  "+ @course.description%></h1>
 
-
-<br>
-  Title:
-  <%= @course.title %>
+     <% if can? :edit, @course %>
+    <%= link_to 'Modifier le Cours', edit_course_path(@course) %> 
+    <% end %>
+    <br>
+      <h1>Id:</h1>
+      <%= @course.course_id %>
 
 
-<br>
-  Description:
-  <%= @course.description %>
+    <br>
+      Title:
+      <%= @course.title %>
 
 
-<br>
-  icon:
-  <%= @course.course_icon %>
+    <br>
+      Description:
+      <%= @course.description %>
 
 
-<br>
-  Category:
-  <%= @course.category %>
+    <br>
+      icon:
+      <%= @course.course_icon %>
 
 
-<br>
-  Level:
-  <%= @course.level %>
+    <br>
+      Category:
+      <%= @course.category %>
 
 
-<br>
-  Teacher:
-  <%= @course.teacher %>
+    <br>
+      Level:
+      <%= @course.level %>
 
 
-<br>
-  Learning skills:
-  <%= @course.learning_skills %>
+    <br>
+      Teacher:
+      <%= @course.teacher %>
 
 
-<br>
-  Points:
-  <%= @course.course_points %>
+    <br>
+      Learning skills:
+      <%= @course.learning_skills %>
+
+
+    <br>
+      Points:
+      <%= @course.course_points %>
 
 
 
 
-<%@course.chapters.each do |chapter| %>
-<br> <br>
- <%= "titre du chapitre est : " + chapter.title%>
-<%  chapter.lessons.each do |lesson| %>
-<br>
-<%= link_to lesson do %>
- <%= "titre de la lecon est : " + lesson.title %> 
-<% end %>
-<% end %>
-<br> 
-<% end %>
-<br>
+    <%@course.chapters.each do |chapter| %>
+    <br> <br>
+     <%= "titre du chapitre est : " + chapter.title%>
+    <%  chapter.lessons.each do |lesson| %>
+    <br>
+    <%= link_to lesson do %>
+     <%= "titre de la lecon est : " + lesson.title %> 
+    <% end %>
+    <% end %>
+    <br> 
+    <% end %>
+    <br>
+
+</div>

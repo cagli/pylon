@@ -15,58 +15,45 @@
     
     <%if user_signed_in? %>
 
-      <!-- User (if logged in) = Dashboard Top-bar + Off-canvas menu -->
-      <div class="off-canvas-wrap" data-offcanvas>
+    <!-- User (if logged in) = Dashboard Topbar + Left Sidebar Menu -->
 
-        <!-- Top-bar (fixed + outside of Off-canvas) -->
-        <div class="sticky">
-          <%= render 'layouts/dashboard_nav' %>
-        </div>
-        <!-- End Top-bar -->
+    <!-- Dashboard Topbar -->
+    <div class="fixed">
+      <%= render 'layouts/dashboard_nav' %>
+    </div>
+    <!-- End Topbar -->
 
-        <main class="inner-wrap">
+    <!-- Main Content = Left Sidebar + Page Content -->
+    <div class="main-container">
 
-          <!-- Off Canvas Menu -->
-          <aside class="left-off-canvas-menu">
-            <ul class="off-canvas-list">
-              <li><span><%= link_to '<i class="fi-home"></i> Home'.html_safe, dashboard_dashboard_path %></span></li>
-              <li><span><%= link_to '<i class="fi-book"></i> Librairie'.html_safe, courses_path%></span></li>
-              <li><a href="#"><i class="fi-star"></i><span>Favoris</span></a></li>
-              <li><a href="#"><i class="fi-target"></i><span>Objectifs</span></a></li>
-              <li><a href="#"><i class="fi-trophy"></i><span>Accomplissements</span></a></li>
-              <li><a href="#"><i class="fi-graph-bar"></i><span>Statistiquess</span></a></li>
-              <li><a href="#"><i class="fi-comments"></i><span>Forum</span></a></li>
-              <li><%= link_to('Déconnexion', destroy_user_session_path, :method => :delete) %></li>
-            </ul>
-          </aside>
-          <!-- End Off Canvas Menu -->
+      <!-- Left Sidebar -->
+      <%= render 'layouts/left_sidebar' %>
+      <!-- End Left Sidebar -->
 
-          <!-- Main content of the page -->
-          <%= render 'layouts/messages' %>
-          <%= yield %>
-          <!-- End Main content -->
-
-          <!-- Close the Off-canvas Menu -->
-          <a class="exit-off-canvas"></a>
-        </main>
+      <!-- Page Content -->
+      <div class="render-page">
+        <%= yield %>
       </div>
+      <!-- End Page Content -->
+
+    </div>
+    <!-- End Main Content -->
 
     <% else %>
     
-      <!-- Visitor (not logged in) = Simple fixed home top-bar -->
+      <!-- Visitor (not logged in) = Simple Fixed Home Topbar -->
       <div class="contain-to-grid fixed">
         <%= render 'layouts/home_nav' %>
       </div>
-      <!-- End Top-bar -->
+      <!-- End Topbar -->
 
-      <!-- Main content of the page -->
+      <!-- Main Content -->
       <%= render 'layouts/messages' %>
       <%= yield %>
       <!-- End Main content -->
 
       <!-- Invisible signupModal -->
       <div id="modal-holder"></div>
-
 
       <div id="signupModal" class="reveal-modal" data-reveal>
         <%= render 'devise/sessions/new' %>

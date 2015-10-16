@@ -1,3 +1,60 @@
 // Place all the styles related to the courses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.library-content {
+    background-color: #ECF0F1;
+
+    .feature-course {
+        padding: 60px;
+        background-color: #FFFFFF;
+
+        .row {
+            .hero-course-logo i {
+                font-size: 8rem;
+                color: #c0392b;
+            }
+
+            .hero-course-description-title,
+            .hero-course-description-text {
+                color: #000000;
+                padding-bottom: 30px;
+                margin: 0;
+            }
+        }
+    }
+
+    .course-container {
+
+        .row {
+            padding-top: 50px;
+
+            a {
+                cursor: pointer;
+
+                .course-card {
+
+                    box-shadow: 1px 2px 1px #D1D1D1;
+                    margin-bottom: 30px;
+
+                    .course-card-banner {
+                        background-color: #512DA8;
+                        color: #FFFFFF;
+                        padding: 0 15px;
+                        i {
+                            font-size: 1.2rem;
+                        }
+                    }
+
+                    .course-card-block {
+                        background-color: #FFFFFF;
+                        padding: 50px 20px;
+                    }
+                }
+
+            }
+
+        }
+
+    }
+}
