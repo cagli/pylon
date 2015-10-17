@@ -6,7 +6,7 @@ class Ability
     user ||= User.new 
      if user.has_role? :admin
         can :manage, :all
-        cannot :destroy, :all
+        # cannot :destroy, :all
     else
         can :read, :all
         cannot :destroy, :all

@@ -41,6 +41,8 @@
     <div class="row">
 
       <!-- Affichage automatique de tous les Cours -->
+
+       
       <% courses.each do |course| %>
 
         <div class="small-10 medium-4 columns">
@@ -62,13 +64,8 @@
                 <div><%= course.teacher %></div>
                 <div><%= course.learning_skills %></div>
                 <div><%= course.course_points %></div>
-
-                <% if can? :update, @course %>
-                <div><%= link_to 'Editer', edit_course_path(course) %></div>
-                <% end %>
-                <% if can? :destroy, @course %>
-                <div><%= link_to 'Détruire', course, method: :delete, data: { confirm: 'Confirmer?' } %></div>
-                <% end %>
+                <% if can? (:update || :destroy), @course %> 
+              <% end %> 
               </div>
 
             </div>
@@ -80,7 +77,7 @@
 
     </div>
     <!-- Fin Bloc Listing des Cours -->
-
+ <% if can? :create, @course %>
     <!-- Bloc Création Cours -->
     <div class="row">
       <span>Gestion des Cours :</span>
@@ -88,6 +85,8 @@
         <li><%= link_to 'Ajouter un Cours', new_course_path %></li>
       </ul>
     </div>
+  <% end %>
+  
     <!-- Fin Bloc Création Cours -->
 
     <!-- Bloc Affichage des Admins -->
