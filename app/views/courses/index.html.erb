@@ -5,8 +5,11 @@
 
     <div class="row">
 
+      <!-- Récuperation Objet du dernier Cours ajouté -->
       <% lastcourse = courses.last %>
+      <!-- Fin Récuperation -->
 
+      <!-- Affichage dernier Cours -->
       <div class="small-12 medium-3 columns hero-course-logo">
         <h3><i class="fi-html5"></i></h3>
       </div>
@@ -16,9 +19,10 @@
         <div class="hero-course-description">
           <h3 class="hero-course-description-title text-left"><%= lastcourse.title %></h3>
           <div class="hero-course-description-text text-left"><%= lastcourse.description %></div>
-          <a href="" class="button radius success">Démarrer &nbsp; &#10095;&#10095;</a>
+          <%= link_to 'Démarrer', lastcourse, class: "button radius success" %>
         </div>
       </div>
+      <!-- Fin Affichage dernier Cours -->
 
     </div>
   </div>
