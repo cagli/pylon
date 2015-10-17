@@ -16,3 +16,8 @@
 # user.password = 'totototo'
 # user.role ||= Role.find_by_name('super_admin')
 # user.save!
+
+Html = Course.create(course_id: 1, title: 'Les Bases du HTML', description: 'Les bases de l HTML ou comment créer son site web', category: 'Front End', level: 'Debutant', teacher: 'timothee', learning_skills: 'HTML CSS', course_points: 20)
+CSS = Course.create(course_id: 2, title: 'Les Bases du CSS', description: 'Les bases du CSS ou comment personnaliser son site web', category: 'Front End', level: 'Debutant', teacher: 'timothee', learning_skills: 'HTML CSS', course_points: 20)
+Javascript= Html = Course.create(course_id: 3, title: 'Les Bases du JavaScript', description: 'Les bases du JavaScript ou comment faire de l interactivité sur son site web', category: 'Front End', level: 'Debutant', teacher: 'timothee', learning_skills: 'HTML CSS JavaScript', course_points: 50)
+Ruby = Course.create(course_id: 4, title: 'Les Bases de Ruby', description: 'Les bases de Ruby ou comment créer sa premiere application web', category: 'Front End', level: 'Debutant', teacher: 'timothee', learning_skills: 'Ruby', course_points: 80)
