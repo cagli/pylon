@@ -9,20 +9,22 @@
   </ul>
 
   <section class="top-bar-section">
-    <!-- Right Navigation Links -->
-    <ul class="right">
-      <li class="divider"></li>
+    <!-- Middle Navigation Links -->
+    <ul class="middle">
       <li><a href="#"><i class="fi-trophy"></i><span>Points<span></a></li>
-      <li class="divider"></li>
-      
-      <li><%= link_to '<i class="fi-torso"></i>'.html_safe + " " + current_user.username, dashboard_path('profile')%></li>
-       
-      
+      <li class="divider"></li> 
+      <li><%= link_to '<i class="fi-torso"></i>'.html_safe + " " + current_user.username, dashboard_path('profile')%></li> 
       <li class="divider"></li>
       <li><a href="#"><i class="fi-comments"></i><span>Alertes<span></a></li>
+    </ul>
+    <!-- End Middle Navigation Links -->
+
+    <!-- End Right Navigation Links -->
+    <ul class="right">
       <li class="divider"></li>
       <li><%= link_to('Déconnexion', destroy_user_session_path, :method => :delete) %></li>
     </ul>
     <!-- End Right Navigation Links -->
+
   </section>
 </nav>
