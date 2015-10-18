@@ -68,13 +68,13 @@
                 <div><%= course.teacher %></div>
                 <div><%= course.learning_skills %></div>
                 <div><%= course.course_points %></div>
-                <ul class="button-group radius">
-                  <li><%= link_to 'Démarrer', course, class: "button success" %></li>
+                <ul class="button-group">
+                  <li><%= link_to 'Démarrer', course, class: "button small radius success" %></li>
                   <% if can? :update, @course %>
-                    <li><%= link_to 'Editer', edit_course_path(course), class: "button secondary" %></li>
+                    <li><%= link_to 'Editer', edit_course_path(course), class: "button small radius info" %></li>
                   <% end %>
                   <% if can? :destroy, @course %>
-                    <li><%= link_to 'Détruire', course, class: "button alert", method: :delete, data: { confirm: 'Confirmer?' } %></li>
+                    <li><%= link_to 'Détruire', course, class: "button small radius alert", method: :delete, data: { confirm: 'Confirmer?' } %></li>
                   <% end %>
                 </ul>
               </div>
