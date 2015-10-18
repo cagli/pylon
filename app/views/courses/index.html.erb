@@ -94,29 +94,34 @@
     <!-- Si peut créer un cours, Affichage de Blocs Supplémentaires -->
     <% if can? :create, @course %>
 
-      <!-- Bloc Création Cours -->
-      <div class="row panel">
-        <span>Gestion des Cours :</span>
-        <ul>
-          <li><%= link_to 'Ajouter un Cours', new_course_path %></li>
-        </ul>
-      </div>
-      <!-- Fin Bloc Création Cours -->
+      <div class="row">
 
-      <!-- Bloc Affichage des Admins -->
-      <div class="row panel">
-        <span>Liste des Admins :</span>
-        <ul>
-          <% (User.with_role :admin).each do |user|%>
-            <li><%= user.username %></li>
-          <% end%>
-        </ul>
-      </div>
-      <!-- Fin Bloc Affichage des Admins -->
+        <!-- Bloc Création Cours -->
+        <div class="small-12 small-centered medium-10 large-8 columns panel callout radius">
+          <span>Gestion des Cours :</span>
+          <ul>
+            <li><%= link_to 'Ajouter un Cours', new_course_path %></li>
+          </ul>
+        </div>
+        <!-- Fin Bloc Création Cours -->
 
+        <!-- Bloc Affichage des Admins -->
+        <div class="small-12 small-centered medium-10 large-8 columns panel callout radius">
+          <span>Liste des Admins :</span>
+          <ul>
+            <% (User.with_role :admin).each do |user|%>
+              <li><%= user.username %></li>
+            <% end%>
+          </ul>
+        </div>
+        <!-- Fin Bloc Affichage des Admins -->
+
+      </div>
+      
     <% end %>
     <!-- Fin Affichage Affichage de Blocs Supplémentaires -->
 
   </div>
   <!-- Fin Reste Contenu de Page -->
+
 </div>
