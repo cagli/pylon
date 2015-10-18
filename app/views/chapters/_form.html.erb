@@ -1,6 +1,6 @@
 
-<%= simple_form_for([@course, @chapter], remote: request.xhr?, html: { data: { modal: true } })  do |f| %>
-
+<%= simple_form_for([@course, @chapter])  do |f| %>
+<!-- , remote: request.xhr?, html: { data: { modal: true } } -->
 
   <%= f.label :id %>
   <%= f.text_field :id %>

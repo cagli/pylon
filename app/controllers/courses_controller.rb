@@ -5,10 +5,20 @@ class CoursesController < ApplicationController
 
  attr_reader :courses
  helper_method :courses
+
+
+
+
  @courses = Course.all
 
   # GET /courses
   # GET /courses.json
+
+  def to_param
+   "#{id}-#{title}"
+  end
+
+
   def index
     @courses = Course.all
     # @courses = Course.scoped

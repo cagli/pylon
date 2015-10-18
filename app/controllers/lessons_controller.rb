@@ -33,7 +33,7 @@ def create
 
 		  if @lesson.save
 		    flash[:success] = "Lesson created"
-		    redirect_to course_path(@course)
+		    redirect_to edit_course_path(@course)
 		  else
 		    flash[:error] = "problem"
 		    render action: :new

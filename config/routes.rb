@@ -30,6 +30,8 @@ scope shallow_path: "short" do
 
 end
 
+
+
 # devise_scope :user do
   unauthenticated :user do
   	root "welcome#home", as: :unauthenticated_root
@@ -38,6 +40,7 @@ end
     root 'dashboard#dashboard', as: :authenticated_root
   end
 # end
+
 
 end
 # end

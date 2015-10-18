@@ -5,18 +5,24 @@
 
     <div class="row">
 
-      <div class="small-10 medium-3 columns hero-course-logo">
+      <!-- Récuperation Objet du dernier Cours ajouté -->
+      <% lastcourse = courses.last %>
+      <!-- Fin Récuperation -->
+
+      <!-- Affichage dernier Cours -->
+      <div class="small-12 medium-3 columns hero-course-logo">
         <h3><i class="fi-html5"></i></h3>
       </div>
 
-      <div class="small-10 medium-9 columns">
+      <div class="small-12 medium-9 columns">
 
         <div class="hero-course-description">
-          <h3 class="hero-course-description-title text-left">Titre du Cours Principal</h3>
-          <div class="hero-course-description-text text-left">Description du cours principal Description du cours principal Description du cours principal Description du cours principal Description du cours principal</div>
-          <a href="" class="button radius">Accéder au Cours &nbsp; &#10095;&#10095;</a>
+          <h3 class="hero-course-description-title text-left"><%= lastcourse.title %></h3>
+          <div class="hero-course-description-text text-left"><%= lastcourse.description %></div>
+          <%= link_to 'Démarrer', lastcourse, class: "button radius success" %>
         </div>
       </div>
+      <!-- Fin Affichage dernier Cours -->
 
     </div>
   </div>
@@ -27,7 +33,7 @@
 
     <!-- Bloc de Recherche -->
     <div class="row">
-      <div class="small-10 medium-8 large-6 small-centered columns">
+      <div class="small-12 medium-8 large-8 small-centered columns">
         <form>
             <label>Rechercher :
               <input type="text" placeholder="ex: HTML, Swift, Ruby...">
@@ -41,13 +47,12 @@
     <div class="row">
 
       <!-- Affichage automatique de tous les Cours -->
-
-       
       <% courses.each do |course| %>
 
-        <div class="small-10 medium-4 columns">
+        <div class="small-12 medium-6 large-4 columns left">
 
-          <a href="">
+          <%= link_to course do %>
+
             <div class="course-card">
 
               <div class="course-card-banner">
@@ -56,49 +61,61 @@
               </div>
 
               <div class="course-card-block">
-                <div><%= course.course_icon %></div>
-                <div><%= course.category %></div>
+
                 <div><%= course.title %></div>
                 <div><%= course.description %></div>
                 <div><%= course.level %></div>
                 <div><%= course.teacher %></div>
                 <div><%= course.learning_skills %></div>
                 <div><%= course.course_points %></div>
-                <% if can? (:update || :destroy), @course %> 
-              <% end %> 
+                <ul class="button-group radius">
+                  <li><%= link_to 'Démarrer', course, class: "button success" %></li>
+                  <% if can? :update, @course %>
+                    <li><%= link_to 'Editer', edit_course_path(course), class: "button secondary" %></li>
+                  <% end %>
+                  <% if can? :destroy, @course %>
+                    <li><%= link_to 'Détruire', course, class: "button alert", method: :delete, data: { confirm: 'Confirmer?' } %></li>
+                  <% end %>
+                </ul>
               </div>
 
             </div>
-          </a>
-        </div>
+
+          <% end %>
+
+        </div>        
 
       <% end %>
       <!-- Fin Affichage automatique de tous les Cours -->
 
     </div>
     <!-- Fin Bloc Listing des Cours -->
- <% if can? :create, @course %>
-    <!-- Bloc Création Cours -->
-    <div class="row">
-      <span>Gestion des Cours :</span>
-      <ul>
-        <li><%= link_to 'Ajouter un Cours', new_course_path %></li>
-      </ul>
-    </div>
-  <% end %>
-  
-    <!-- Fin Bloc Création Cours -->
+    
+    <!-- Si peut créer un cours, Affichage de Blocs Supplémentaires -->
+    <% if can? :create, @course %>
 
-    <!-- Bloc Affichage des Admins -->
-    <div class="row">
-      <span>Liste des Admins :</span>
-      <ul>
-        <% (User.with_role :admin).each do |user|%>
-        <li><%= user.username %></li>
-        <% end%>
-      </ul>
-    </div>
-    <!-- Fin Bloc Affichage des Admins -->
+      <!-- Bloc Création Cours -->
+      <div class="row panel">
+        <span>Gestion des Cours :</span>
+        <ul>
+          <li><%= link_to 'Ajouter un Cours', new_course_path %></li>
+        </ul>
+      </div>
+      <!-- Fin Bloc Création Cours -->
+
+      <!-- Bloc Affichage des Admins -->
+      <div class="row panel">
+        <span>Liste des Admins :</span>
+        <ul>
+          <% (User.with_role :admin).each do |user|%>
+            <li><%= user.username %></li>
+          <% end%>
+        </ul>
+      </div>
+      <!-- Fin Bloc Affichage des Admins -->
+
+    <% end %>
+    <!-- Fin Affichage Affichage de Blocs Supplémentaires -->
 
   </div>
   <!-- Fin Reste Contenu de Page -->

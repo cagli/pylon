@@ -42,7 +42,7 @@ def index
 
   if @chapter.save
     flash[:success] = "ajout d'un chapitre"
-    redirect_to course_path(@course)
+    redirect_to edit_course_path(@course)
   else
     flash[:error] = "problem d'ajout d'un chapitre"
     render action: :new

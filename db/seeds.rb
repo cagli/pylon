@@ -17,8 +17,6 @@
 # user.role ||= Role.find_by_name('super_admin')
 # user.save!
 
-
-
 Html = Course.create(course_id: 4, title: 'HTML', description: 'Les bases de l HTML ou comment créer son premier site web', category: 'Front End', level: 'Debutant', teacher: 'timothee', learning_skills: 'HTML CSS', course_points: 20)
 CSS = Course.create(course_id: 5, title: 'CSS', description: 'Les bases de l HTML ou comment créer son premier site web', category: 'Front End', level: 'Debutant', teacher: 'timothee', learning_skills: 'HTML CSS', course_points: 20)
 Javascript=  Course.create(course_id: 6, title: 'Javascript', description: 'Les bases de l HTML ou comment créer son premier site web', category: 'Front End', level: 'Debutant', teacher: 'timothee', learning_skills: 'HTML CSS', course_points: 50)
@@ -32,4 +30,3 @@ Ruby2 = Course.create(course_id: 11, title: 'Ruby', description: 'Les bases de l
 Html3 = Course.create(course_id: 12, title: 'HTML', description: 'Les bases de l HTML ou comment créer son premier site web', category: 'Front End', level: 'Debutant', teacher: 'timothee', learning_skills: 'HTML CSS', course_points: 20)
 CSS3 = Course.create(course_id: 13, title: 'CSS', description: 'Les bases de l HTML ou comment créer son premier site web', category: 'Front End', level: 'Debutant', teacher: 'timothee', learning_skills: 'HTML CSS', course_points: 20)
 Javascript3 =  Course.create(course_id: 14, title: 'Javascript', description: 'Les bases de l HTML ou comment créer son premier site web', category: 'Front End', level: 'Debutant', teacher: 'timothee', learning_skills: 'HTML CSS', course_points: 50)
-Ruby3 = Course.create(course_id: 15, title: 'Ruby', description: 'Les bases de l HTML ou comment créer son premier site web', category: 'Front End', level: 'Debutant', teacher: 'timothee', learning_skills: 'HTML CSS', course_points: 80)

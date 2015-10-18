@@ -10,8 +10,9 @@
         background-color: #FFFFFF;
 
         .row {
+
             .hero-course-logo i {
-                font-size: 8rem;
+                font-size: 10rem;
                 color: #c0392b;
             }
 
@@ -27,31 +28,47 @@
     .course-container {
 
         .row {
-            padding-top: 50px;
+            max-width: 80em;
+            padding: 30px 0;
+        }
 
-            a {
-                cursor: pointer;
+        .row a {
+            cursor: pointer;
+            display: block;
+            position: relative;
+        }
 
-                .course-card {
+        .course-card {                   
+            box-shadow: 1px 2px 1px #D1D1D1;    
+            margin-bottom: 20px;
 
-                    box-shadow: 1px 2px 1px #D1D1D1;
-                    margin-bottom: 30px;
 
-                    .course-card-banner {
-                        background-color: #512DA8;
-                        color: #FFFFFF;
-                        padding: 0 15px;
-                        i {
-                            font-size: 1.2rem;
-                        }
-                    }
+            .course-card-banner {
+                position: absolute;                     
+                width: 100%;
+                background-color: #512DA8;
+                color: #FFFFFF;
+                padding: 10px 20px;
+                border-radius: 4px 4px 0 0;
+            }
 
-                    .course-card-block {
-                        background-color: #FFFFFF;
-                        padding: 50px 20px;
-                    }
+            .course-card-block {    
+                min-height: 300px; 
+                max-height: 300px;                   
+                background-color: #FFFFFF;
+                padding: 50px 20px 20px;
+                /* top | horizontal | bottom */
+
+                div {
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
 
+                ul {
+                    padding: 10px 0;
+                }
             }
 
         }
