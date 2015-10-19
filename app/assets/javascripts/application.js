@@ -39,6 +39,7 @@ ready = function() {
 	/***** Sidebar Toggle *****/
 	$('.toggleSidebar').click(function() {
 		$('.left-sidebar').toggleClass('toggle');
+		$("i",this).toggleClass("fi-arrow-left fi-arrow-right");
 	});
 	/***** End Sidebar Toggle *****/
 
