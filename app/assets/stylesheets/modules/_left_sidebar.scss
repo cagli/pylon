@@ -12,8 +12,8 @@
     a {
       color: white;
     }
-    ul li :hover {
-      color: #2BA6CB;
+    li:hover {
+      background-color: #333333;
     }    
 }
 
@@ -27,6 +27,9 @@
             font-size: 2rem;
             padding: 0px 20px;
         }
+    }
+    .toggleSidebar i {
+        color: #2BA6CB;
     }
 }
 
