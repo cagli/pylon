@@ -1,13 +1,17 @@
-<%= render 'layouts/messages' %>
-
 <div class="row">
+
+  <%= render 'layouts/messages' %>
 
   <!-- <p id="notice"><%= notice %></p> -->
 
   <div class="row panel callout radius">
-      <div class="small-4 columns">Avatar : <%= image_tag(current_user.avatar.thumb.url) %></div>
-      <div class="small-4 columns">Email : <%= current_user.email %></div>
-      <div class="small-4 columns">Username : <%= current_user.username %></div>
+      <div class="small-12 medium-6 columns">
+        Avatar : <%= image_tag(current_user.avatar.thumb.url) %>
+      </div>
+      <div class="small-12 medium-6 columns">
+        <span>Email : <%= current_user.email %></span>
+        <span>Username : <%= current_user.username %></span>
+      </div>
   </div>
 
   <div class="panel callout radius">

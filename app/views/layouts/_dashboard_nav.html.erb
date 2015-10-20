@@ -1,7 +1,7 @@
 <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
   <ul class="title-area">
     <li class="name">
-      <h1><a href="#"><span>Pylon</span></a></h1>
+      <h1><a href="#">Pylon</a></h1>
     </li>
     <!-- For Responsive design on smaller devices : -->
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -9,11 +9,17 @@
   </ul>
 
   <section class="top-bar-section">
+  
     <!-- Middle Navigation Links -->
     <ul class="middle">
       <li><a href="#"><i class="fi-trophy"></i><span>Points<span></a></li>
-      <li class="divider"></li> 
-      <li><%= link_to '<i class="fi-torso"></i>'.html_safe + " " + current_user.username, dashboard_path('profile')%></li> 
+      <li class="divider"></li>
+      <li>
+        <%= link_to dashboard_path('profile') do %>
+          <%= image_tag(current_user.avatar.thumb.url) %>
+          <span><%= current_user.username %></span>
+        <% end %>
+      </li>
       <li class="divider"></li>
       <li><a href="#"><i class="fi-comments"></i><span>Alertes<span></a></li>
     </ul>
