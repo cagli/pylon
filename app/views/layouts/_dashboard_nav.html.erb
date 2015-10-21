@@ -12,7 +12,7 @@
   
     <!-- Middle Navigation Links -->
     <ul class="middle">
-      <li><a href="#"><i class="fi-trophy"></i><span>Points<span></a></li>
+      <li><a href="#"><i class="fi-trophy"></i><span>Rang<span></a></li>
       <li class="divider"></li>
       <li>
         <%= link_to dashboard_path('profile') do %>
@@ -28,7 +28,7 @@
     <!-- End Right Navigation Links -->
     <ul class="right">
       <li class="divider"></li>
-      <li><%= link_to('Déconnexion', destroy_user_session_path, :method => :delete) %></li>
+      <li><%= link_to('<i class="fi-power"></i>'.html_safe, destroy_user_session_path, :method => :delete) %></li>
     </ul>
     <!-- End Right Navigation Links -->
 
