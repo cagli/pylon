@@ -1,0 +1,38 @@
+.course-content {
+    background-color: #ECF0F1;
+
+    .row {
+        max-width: 85em;
+        // border: 1px solid #000000;        
+    }
+
+    .presentation-cours,
+    .path-course {
+        background-color: #FFFFFF;
+        border-radius: 4px;
+        box-shadow: 1px 2px 1px #D1D1D1;
+    }
+
+    .sous-titre {
+        color: #bdc3c7;
+        padding: 20px 0;
+    }
+
+    .chapter-bloc {    
+        margin: 0;
+        border-bottom: 1px solid #D1D1D1;
+    }
+
+   .lessonline {
+        padding: 10px 30px;
+        background-color: #F9F9F9;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        &:hover {
+            background-color: #FFFFFF;
+        }
+        div {
+            display: inline;
+        }
+   }
+
+}

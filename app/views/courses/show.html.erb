@@ -1,63 +1,172 @@
-<div class="row">
+<div class="course-content">
 
-    <p id="notice"><%= notice %>
+  <!-- Lien Retour -->
+  <div class="row">
+    <%= link_to '<i class="fi-arrow-left"></i> Retour'.html_safe, url_for(:back) %>
+  </div>
+  <!-- Fin Lien Retour -->
 
-    <%= link_to '<i class="fi-arrow-left"></i> librairie'.html_safe, courses_path() %>
-    <h1><%=@course.title%></h1>
-    <h1><%= 'Description du cours :' + "  "+ @course.description%></h1>
+  <!-- Présentation Générale du Cours -->
+  <div class="row presentation-cours">
 
-     <% if can? :edit, @course %>
-    <%= link_to 'Modifier le Cours', edit_course_path(@course) %> 
+    <div class="small-12 medium-4 columns">
+      <div>Icone du cours</div>
+    </div>
+
+    <div class="small-12 medium-8 columns">
+      <div>Titre du cours</div>
+      <div>Description du cours</div>
+    </div>
+
+    <div class="small-12 columns">
+      <div>Progression</div>
+    </div>
+
+  </div>
+  <!-- Fin Présentation Générale du Cours -->
+
+  <!-- Détails du Cours -->
+  <div class="row">
+
+    <!-- Section Gauche : Listing des chapitres et Lecons -->
+    <div class="small-12 medium-9 columns">
+
+      <!-- Nombre d'étapes -->
+      <div class="sous-titre">
+        Nombres d'étapes / Durée
+      </div>
+      <!-- Fin Nombre d'étapes -->
+
+      <!-- Listing des chapitres -->
+      <div class="path-course">
+
+        <div class="row chapter-bloc">
+
+          <div class="small-2 columns">
+            <div>Icone du chapitre 1</div>
+          </div>
+          <div class="small-10 columns">
+            <div>Titre du chapitre 1</div>
+            <div>Description du chapitre 1</div>
+          </div>
+
+        </div>
+
+        <!-- Listing des lecons du chapitre -->
+        <div class="lessonlist-bloc">
+
+          <div class="lessonline">
+            <div>Icone Type Lecon 1</div>
+            <div>Titre Lecon 1</div>
+            <div>Status Lecon 1</div>
+          </div>
+          <div class="lessonline">
+            <div>Icone Type Lecon 2</div>
+            <div>Titre Lecon 2</div>
+            <div>Status Lecon 2</div>
+          </div>
+          <div class="lessonline">
+            <div>Icone Type Lecon 3</div>
+            <div>Titre Lecon 3</div>
+            <div>Status Lecon 3</div>
+          </div>
+          <div class="lessonline">
+            <div>Icone Type Lecon 4</div>
+            <div>Titre Lecon 4</div>
+            <div>Status Lecon 4</div>
+          </div>
+          <div class="lessonline">
+            <div>Icone Type Lecon 5</div>
+            <div>Titre Lecon 5</div>
+            <div>Status Lecon 5</div>
+          </div>
+
+        </div>
+        <!-- Fin Listing des lecons du chapitre -->
+
+      </div>
+      <!-- Fin Listing des chapitres -->
+
+    </div>
+    <!-- Fin Section Gauche -->
+
+    <!-- Section Droite : Professeur et Compétences apprises -->
+    <div class="small-12 medium-3 columns">
+
+      <div class="sous-titre">
+        Professeur
+      </div>
+
+      <div class="sous-titre">
+        Competences apprises
+      </div>
+
+    </div>
+    <!-- Fin Section Droite -->
+
+  </div>
+  <!-- Fin Détails du Cours -->
+
+
+
+
+
+
+
+
+
+
+    <!-- <p id="notice"><%= notice %> -->
+
+    <!--
+    <% if can? :edit, @course %>
+      <%= link_to 'Modifier le Cours', edit_course_path(@course) %> 
     <% end %>
-    <br>
-      <h1>Id:</h1>
-      <%= @course.course_id %>
+    
+    <%= link_to '<i class="fi-arrow-left"></i> Retour'.html_safe, url_for(:back) %>
 
+    <div><%=@course.title%></div>
+    <div><%= 'Description du cours :' + "  "+ @course.description%></div>
+    
+      <div>Id:
+      <%= @course.course_id %>
 
     <br>
       Title:
       <%= @course.title %>
 
-
     <br>
       Description:
       <%= @course.description %>
-
 
     <br>
       icon:
       <%= @course.course_icon %>
 
-
     <br>
       Category:
       <%= @course.category %>
-
 
     <br>
       Level:
       <%= @course.level %>
 
-
     <br>
       Teacher:
       <%= @course.teacher %>
-
 
     <br>
       Learning skills:
       <%= @course.learning_skills %>
 
-
     <br>
       Points:
       <%= @course.course_points %>
 
-
-
+      </div>
 
     <%@course.chapters.each do |chapter| %>
-    <br> <br>
+
      <%= "titre du chapitre est : " + chapter.title%>
     <%  chapter.lessons.each do |lesson| %>
     <br>
@@ -68,5 +177,7 @@
     <br> 
     <% end %>
     <br>
+
+    -->
 
 </div>
