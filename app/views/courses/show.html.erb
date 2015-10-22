@@ -6,103 +6,157 @@
   </div>
   <!-- Fin Lien Retour -->
 
-  <!-- Présentation Générale du Cours -->
-  <div class="row presentation-cours">
+  <!-- Bloc de Présentation Générale du Cours -->
+  <div class="row presentation-cours-bloc">
 
-    <div class="small-12 medium-4 columns">
-      <div>Icone du cours</div>
+    <!-- Icone du cours -->
+    <div class="small-12 medium-4 columns presentation-cours-logo">
+      <%= @course.course_icon %>
     </div>
+    <!-- Fin Icone du cours -->
 
-    <div class="small-12 medium-8 columns">
-      <div>Titre du cours</div>
-      <div>Description du cours</div>
+    <!-- Informations du cours -->
+    <div class="small-12 medium-8 columns presentation-cours-info">
+      <div class="presentation-cours-info-category"><%= @course.category %></div>
+      <div class="presentation-cours-info-level right"><%= @course.level %></div>
+      <h2 class="presentation-cours-info-title"><%= @course.title %></h2>
+      <div class="presentation-cours-info-description"><%= @course.description %></div>   
+      <div class="button radius success">Démarrer</div>
     </div>
+    <!-- Fin Informations du cours -->
 
-    <div class="small-12 columns">
-      <div>Progression</div>
+    <!-- Bloc Progression du cours -->
+    <div class="small-12 columns progression">
+        <div class="row">
+          
+          <!-- Ligne Bar de Progression -->
+          <div class="small-12 medium-10 columns">
+            <div class="progress small-12 success round">
+              <span class="meter" style="width: 15%"></span>
+            </div>
+          </div>
+          <!-- Fin Ligne Bar de Progression -->
+
+          <!-- Pourcentage Terminé -->
+          <div class="small-12 medium-2 columns">
+            <span class="subheader">15% Progression</span>
+          </div>
+          <!-- Fin Pourcentage Terminé -->
+
+        </div>     
     </div>
+    <!-- Fin Bloc Progression du cours -->
 
   </div>
-  <!-- Fin Présentation Générale du Cours -->
+  <!-- Fin Bloc de Présentation Générale du Cours -->
 
   <!-- Détails du Cours -->
-  <div class="row">
+  <div class="row section-details-cours">
 
     <!-- Section Gauche : Listing des chapitres et Lecons -->
-    <div class="small-12 medium-9 columns">
+    <div class="small-12 medium-9 columns section-details-cours-gauche">
 
       <!-- Nombre d'étapes -->
-      <div class="sous-titre">
+      <div class="subheader">
         Nombres d'étapes / Durée
       </div>
       <!-- Fin Nombre d'étapes -->
 
-      <!-- Listing des chapitres -->
-      <div class="path-course">
+      <!-- Listing des chapitres du cours -->
+      <%@course.chapters.each do |chapter| %>
 
-        <div class="row chapter-bloc">
+        <!-- Bloc d'un chapitre -->
+        <div class="chapterlist-course">
 
-          <div class="small-2 columns">
-            <div>Icone du chapitre 1</div>
+          <div class="row chapter-bloc">
+
+            <div class="small-12 medium-2 columns chapter-info-logo">
+              <div>Img</div>
+            </div>
+
+            <div class="small-12 medium-10 columns">
+
+              <div class="chapter-info-content">
+                <div class="chapter-info-content-title"><%= chapter.title %></div>
+                <div class="chapter-info-content-text"><%= chapter.description %></div>
+              </div>
+
+            </div>
+
           </div>
-          <div class="small-10 columns">
-            <div>Titre du chapitre 1</div>
-            <div>Description du chapitre 1</div>
-          </div>
 
+          <!-- Bloc des lecons du chapitre -->
+          <div class="lessonlist-bloc">
+          
+            <!-- Listing des lecons d'un chapitre -->
+            <% chapter.lessons.each do |lesson| %>
+            
+              <!-- Ligne d'une lecon -->
+              <div class="lessonline">
+
+                <div class="lessonstatus"><i class="fi-play-circle"></i></div>
+                <div class="lessontitle"><%= lesson.title %></div>
+                <div class="right">Status</div>
+
+              </div>
+              <!-- Fin Ligne d'une lecon -->
+
+            <% end %>
+            <!-- Fin Listing des lecons d'un chapitre -->
+
+          </div>
+          <!-- Fin Bloc des lecons d'un chapitr -->
+          
         </div>
+        <!-- Fin Bloc d'un chapitre -->
 
-        <!-- Listing des lecons du chapitre -->
-        <div class="lessonlist-bloc">
-
-          <div class="lessonline">
-            <div>Icone Type Lecon 1</div>
-            <div>Titre Lecon 1</div>
-            <div>Status Lecon 1</div>
-          </div>
-          <div class="lessonline">
-            <div>Icone Type Lecon 2</div>
-            <div>Titre Lecon 2</div>
-            <div>Status Lecon 2</div>
-          </div>
-          <div class="lessonline">
-            <div>Icone Type Lecon 3</div>
-            <div>Titre Lecon 3</div>
-            <div>Status Lecon 3</div>
-          </div>
-          <div class="lessonline">
-            <div>Icone Type Lecon 4</div>
-            <div>Titre Lecon 4</div>
-            <div>Status Lecon 4</div>
-          </div>
-          <div class="lessonline">
-            <div>Icone Type Lecon 5</div>
-            <div>Titre Lecon 5</div>
-            <div>Status Lecon 5</div>
-          </div>
-
-        </div>
-        <!-- Fin Listing des lecons du chapitre -->
-
-      </div>
+      <% end %>
       <!-- Fin Listing des chapitres -->
 
     </div>
     <!-- Fin Section Gauche -->
 
-    <!-- Section Droite : Professeur et Compétences apprises -->
-    <div class="small-12 medium-3 columns">
+    <!-- Section Droite : Professeur et Compétences apprises du cours + Administration -->
+    <div class="small-12 medium-3 columns section-details-cours-droite">
 
-      <div class="sous-titre">
-        Professeur
-      </div>
+      <!-- Bloc Professeur -->
+      <div class="professeur-bloc">
+        <div class="subheader">Professeur</div>
 
-      <div class="sous-titre">
-        Competences apprises
+        <div class="professeur-info">
+          <img src="<%= asset_path('brouchey.jpg') %>"/>
+          <span><%= @course.teacher %></span>
+          <p class="text-left">Description Professeur Description Professeur Description Professeur Description Professeur Description Professeur Description Professeur Description Professeur Description Professeur</p>
+        </div>
       </div>
+      <!-- Fin Bloc Professeur -->
+
+      <!-- Bloc Competences -->
+      <div class="skills-bloc">
+        <div class="subheader">Competences apprises</div>
+        <div class="button round"><%= @course.learning_skills %></div>
+      </div>
+      <!-- Fin Bloc Competences -->
+
+      <!-- Bloc Administration -->
+      <div class="admin-bloc">
+
+        <% if can? :edit, @course %>
+          <div class="subheader">
+            <div>Administration</div>
+          </div>
+          <%= link_to 'Modifier', edit_course_path(@course), class: "button small radius info" %>
+        <% end %>
+
+        <% if can? :destroy, @course %>
+          <%= link_to 'Supprimer', @course, class: "button small radius alert", method: :delete, data: { confirm: 'Confirmer?' } %>
+        <% end %>
+
+      </div>
+      <!-- Fin Bloc Administration -->
 
     </div>
-    <!-- Fin Section Droite -->
+    <!-- Fin Section Droite : Professeur et Compétences apprises du cours + Administration -->
 
   </div>
   <!-- Fin Détails du Cours -->
@@ -111,73 +165,23 @@
 
 
 
-
-
-
-
-
-    <!-- <p id="notice"><%= notice %> -->
-
-    <!--
-    <% if can? :edit, @course %>
-      <%= link_to 'Modifier le Cours', edit_course_path(@course) %> 
-    <% end %>
-    
-    <%= link_to '<i class="fi-arrow-left"></i> Retour'.html_safe, url_for(:back) %>
-
-    <div><%=@course.title%></div>
-    <div><%= 'Description du cours :' + "  "+ @course.description%></div>
-    
-      <div>Id:
-      <%= @course.course_id %>
-
-    <br>
-      Title:
-      <%= @course.title %>
-
-    <br>
-      Description:
-      <%= @course.description %>
-
-    <br>
-      icon:
-      <%= @course.course_icon %>
-
-    <br>
-      Category:
-      <%= @course.category %>
-
-    <br>
-      Level:
-      <%= @course.level %>
-
-    <br>
-      Teacher:
-      <%= @course.teacher %>
-
-    <br>
-      Learning skills:
-      <%= @course.learning_skills %>
-
-    <br>
-      Points:
-      <%= @course.course_points %>
-
-      </div>
-
+    <!-- <p id="notice"><%= notice %> 
+   
     <%@course.chapters.each do |chapter| %>
 
      <%= "titre du chapitre est : " + chapter.title%>
-    <%  chapter.lessons.each do |lesson| %>
-    <br>
-    <%= link_to lesson do %>
-     <%= "titre de la lecon est : " + lesson.title %> 
-    <% end %>
-    <% end %>
-    <br> 
-    <% end %>
-    <br>
 
-    -->
+      <%  chapter.lessons.each do |lesson| %>
+
+      <%= link_to lesson do %>
+        <%= "titre de la lecon est : " + lesson.title %> 
+        <% end %>
+
+      <% end %>
+
+    <% end %>
+  -->
+
+    
 
 </div>
