@@ -1,15 +1,25 @@
-<!-- Show Lesson -->
-<p id="notice"><%= notice %></p>
-<%= link_to course_path(@course) do %>
-<%= "#{@course.title} : #{@chapter.title} : #{@lesson.title}" %>
-<%end%>
+<div class="lesson-content">
 
+	<div class="row">
 
+		<div class="small-12 columns">    
 
-<br>
+			<!-- Show Lesson -->
+			<p id="notice"><%= notice %></p>
+			<%= link_to course_path(@course) do %>
+			<%= "#{@course.title} : #{@chapter.title} : #{@lesson.title}" %>
+			<%end%>
 
-<video width="320" height="240" controls>
-  <source src="movie.mp4" type="video/mp4">
-  <source src="movie.ogg" type="video/ogg">
-  Your browser does not support the video tag.
-</video>
+			<br>
+
+			<video width="320" height="240" controls>
+			  <source src="movie.mp4" type="video/mp4">
+			  <source src="movie.ogg" type="video/ogg">
+			  Your browser does not support the video tag.
+			</video>
+
+		</div>
+
+	</div>
+
+</div>

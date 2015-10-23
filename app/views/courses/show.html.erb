@@ -92,20 +92,24 @@
             <% chapter.lessons.each do |lesson| %>
             
               <!-- Ligne d'une lecon -->
-              <div class="lessonline">
+              <%= link_to lesson do %>
 
-                <div class="lessonstatus"><i class="fi-play-circle"></i></div>
-                <div class="lessontitle"><%= lesson.title %></div>
-                <div class="right">Status</div>
+                <div class="lessonline">
 
-              </div>
+                  <div class="lessonstatus"><i class="fi-play-circle"></i></div>
+                  <div class="lessontitle"><%= lesson.title %></div>
+                  <div class="right">Status</div>
+
+                </div>
+
+              <% end %>
               <!-- Fin Ligne d'une lecon -->
 
             <% end %>
             <!-- Fin Listing des lecons d'un chapitre -->
 
           </div>
-          <!-- Fin Bloc des lecons d'un chapitr -->
+          <!-- Fin Bloc des lecons d'un chapitre -->
           
         </div>
         <!-- Fin Bloc d'un chapitre -->
@@ -159,29 +163,6 @@
     <!-- Fin Section Droite : Professeur et Compétences apprises du cours + Administration -->
 
   </div>
-  <!-- Fin Détails du Cours -->
-
-
-
-
-
-    <!-- <p id="notice"><%= notice %> 
-   
-    <%@course.chapters.each do |chapter| %>
-
-     <%= "titre du chapitre est : " + chapter.title%>
-
-      <%  chapter.lessons.each do |lesson| %>
-
-      <%= link_to lesson do %>
-        <%= "titre de la lecon est : " + lesson.title %> 
-        <% end %>
-
-      <% end %>
-
-    <% end %>
-  -->
-
-    
+  <!-- Fin Détails du Cours -->  
 
 </div>
