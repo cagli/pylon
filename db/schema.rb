@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925114313) do
+ActiveRecord::Schema.define(version: 20151030110906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150925114313) do
     t.integer  "chapter_points"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "position"
   end
 
   add_index "chapters", ["course_id"], name: "index_chapters_on_course_id", using: :btree

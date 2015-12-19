@@ -25,6 +25,17 @@
         }
     }
 
+.sortable-placeholder {
+  border: 1px dashed #CCC;
+  background-color: #f9f9f9;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.sortable {
+  display: list-item;
+  list-style-type: none;
+}
     .course-container {
 
         .row {

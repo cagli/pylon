@@ -13,7 +13,7 @@
     <ul class="middle">
       <li><a href="#"><i class="fi-trophy"></i><span>Points<span></a></li>
       <li class="divider"></li> 
-      <li><%= link_to '<i class="fi-torso"></i>'.html_safe + " " + current_user.username, dashboard_path('profile')%></li> 
+      <li><%= link_to '<i class="fi-torso"></i>'.html_safe + " " + current_user.username, user_path(current_user)%></li> 
       <li class="divider"></li>
       <li><a href="#"><i class="fi-comments"></i><span>Alertes<span></a></li>
     </ul>

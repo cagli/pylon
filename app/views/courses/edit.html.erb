@@ -15,45 +15,29 @@
 
 
     <br>
-      <h1>Id:</h1>
+      Id:
       <%= @course.course_id %>
-
-
     <br>
       Title:
       <%= @course.title %>
-
-
     <br>
       Description:
       <%= @course.description %>
-
-
     <br>
       icon:
       <%= @course.course_icon %>
-
-
     <br>
       Category:
       <%= @course.category %>
-
-
     <br>
       Level:
       <%= @course.level %>
-
-
     <br>
       Teacher:
       <%= @course.teacher %>
-
-
     <br>
       Learning skills:
       <%= @course.learning_skills %>
-
-
     <br>
       Points:
       <%= @course.course_points %>
@@ -61,41 +45,53 @@
     <%= link_to 'Edit', '#', data: {:'reveal-id' => "EditCourse"} %>
 
 
-    <ul id="sortable">
-    <%  @course.chapters.each do |chapter| %>
-    <br> <br><br> <br><br> <br>
-      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><%= "titre du chapitre est : " + chapter.title%>
-    <%  chapter.lessons.each do |lesson| %>
-    <br>
-    <%= link_to lesson do %>
-     <%= "titre de la lecon est : " + lesson.title %>
-     </li>
-    <% end %>
-      </ul>
-
-
-
-
-        <% end %>
-        <br> <br>
+ <div class="row">
+   <div class="col-md-5 col-md-offset-4 sortable" >
+      <% @course.chapters.each do |chapter| %>
+      <br> 
+        <div class="panel panel-default" data-id="<%= chapter.id %>" style="cursor: move" data-course = "<%=@course.id%>">
+          <div class="panel-heading">
+          <%= "titre du chapitre est : " + chapter.title + "    id chap  " + chapter.id.to_s + "   position : " + chapter.position.to_s%>
+          <%= link_to 'Edit', edit_chapter_path(chapter), data: {:"reveal-id" => "myModal", :"reveal-ajax" => true} %>
         
-     <%= link_to "Nouvelle Leçon", new_chapter_lesson_path(chapter) , data: {:"reveal-id" => "myModal", :"reveal-ajax" => true} %>
+            <%= link_to 'Destroy', chapter_path(chapter), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% chapter.lessons.each do |lesson| %>
 
-     
+
+            </div>
+            <br> 
+            <div class="panel-body">
+              <%= link_to lesson do %>
+              <%= "titre de la lecon est : " + lesson.title %>
+              <%= link_to 'Edit', edit_lesson_path(lesson), data: {:"reveal-id" => "myModal", :"reveal-ajax" => true} %>
+              <%= link_to 'Destroy', lesson_path(lesson), method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            <% end %>
+            <br>
+              <!-- fin du parcours de toutes les lecons -->
+          <%= link_to "Nouvelle Leçon", new_chapter_lesson_path(chapter) , data: {:"reveal-id" => "myModal", :"reveal-ajax" => true} %>
+          
+            </div>
+        </div>
+       <% end %>
+    </div>    
+</div>
+
+<!-- fin du parcours de tous les chapitres -->
 
 
-        <% end %>
-    <br> <br><br> <br>
-    <%= link_to "Nouveau Chapitre", new_course_chapter_path(@course) , data: {:"reveal-id" => "myModal", :"reveal-ajax" => true} %>
+        
+    <br> 
+  <%= link_to "Nouveau Chapitre", new_course_chapter_path(@course) , data: {:"reveal-id" => "myModal", :"reveal-ajax" => true} %>
 
 
     <br> 
 
-    <%= link_to 'Voir le cours', @course %> |
+    <%= link_to 'Voir le cours', @course %> 
 
 
      <div id="myModal" class="reveal-modal" data-reveal>
-      
+      <!-- méthode modal sans lien commune à tout le monde, voir si l'on peut faire quelque chose de plus dry -->
      </div>
 
 
@@ -103,5 +99,5 @@
     	<%= render 'form' %>
     	<a class="close-reveal-modal">&#215;</a>
     	</div>
-
+      
 </div>

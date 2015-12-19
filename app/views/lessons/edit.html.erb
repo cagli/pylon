@@ -1,0 +1,25 @@
+<h1>Editing Lessons</h1>
+
+<%= form_for (@lesson) do |f| %>
+
+  <%= f.label :id %>
+  <%= f.text_field :id %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :url_video %>
+  <%= f.text_field :url_video %>
+
+  <video controls="controls" 
+       class="video-stream" 
+       x-webkit-airplay="allow" 
+       data-youtube-id="N9oxmRT2YWw" 
+       src="<%=@lesson.url_video%>"></video>
+ <iframe width="560" height="315" src="<%=@lesson.url_video%>" frameborder="0" allowfullscreen></iframe>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit "Save" %>
+<% end %>
+
+
+<a class="close-reveal-modal">&#215;</a>

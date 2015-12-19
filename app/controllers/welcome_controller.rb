@@ -1,20 +1,5 @@
 class WelcomeController < ApplicationController
-# def home
-#   end
 
-#   def about
-#   end
-
-#   def contact
-  # end
-	
-
-	# def show
-	# 	# render params[:page]
-	#     render template: "welcome/#{params[:page]}"
-	#     # render "welcome/#{params[:page]}"
-
-	# end
 
 def show
       if valid_page?

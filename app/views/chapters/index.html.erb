@@ -27,6 +27,8 @@
         <td><%= chapter.chapter_id %></td>
         <td><%= chapter.title %></td>
         <td> <%=link_to "lessons", chapter_lessons_path(chapter) %>  </td>
+                <td> <%=link_to "sort", chapter_sort_path(chapter) %>  </td>
+
         <td><%= chapter.description %></td>
         <td><%= link_to 'Show', chapter %></td>
         <td><%= link_to 'Edit', edit_chapter_path(chapter) %></td>
