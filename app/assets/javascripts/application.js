@@ -16,8 +16,10 @@
 //= require turbolinks
 //= require foundation
 //= require_tree .
+
 var ready;
 ready = function() {
+
 	$(function() {
 	  $(document).foundation();
 	});
@@ -34,8 +36,14 @@ ready = function() {
 	    $( "#sortable" ).disableSelection();
 	  });
 
+	/***** Sidebar Toggle *****/
+	$('.toggleSidebar').click(function() {
+		$('.left-sidebar').toggleClass('toggle');
+		$("i",this).toggleClass("fi-arrow-left fi-arrow-right");
+	});
+	/***** End Sidebar Toggle *****/
 
-	};
+};
 
 $(document).ready(ready);
 $(document).on('page:load', ready);

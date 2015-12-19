@@ -3,19 +3,18 @@
     color: #FFFFFF;
     display: block;
     position: fixed;
-    width: 60px;
+    width: 160px;
     height: 100%;
     z-index: 1000;
-      overflow: hidden;
-      box-shadow: 1px 0px 2px rgba(0,0,0,0.5);
-      transition: all .7s ease; 
-      a {
-        color: white;
-      }
-      ul li :hover {
-        color: #2BA6CB;
-      }
-      
+    overflow: hidden;
+    box-shadow: 1px 0px 2px rgba(0,0,0,0.5);
+    transition: all .7s ease; 
+    a {
+      color: white;
+    }
+    li:hover {
+      background-color: #333333;
+    }    
 }
 
 .propreties-sidebar {
@@ -29,13 +28,21 @@
             padding: 0px 20px;
         }
     }
-}
-
-.left-sidebar:hover {
-    width: 160px;
+    .toggleSidebar i {
+        color: #2BA6CB;
+    }
 }
 
 .render-page {
     margin-left: 60px;
     height: 100%;
 }
+
+/***** Toggle Sidebar *****/
+
+.left-sidebar.toggle {
+    width: 60px;
+}
+
+/***** End Toggle Sidebar *****/
+

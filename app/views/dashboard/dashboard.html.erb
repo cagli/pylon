@@ -1,59 +1,120 @@
-<%= render 'layouts/messages' %>
+<div class="dashboard-content">
 
-<div class="row">
+  <!-- Tête d'Affiche -->
+  <div class="profile-summary">
 
-        <p id="notice"><%= notice %></p>
+    <div class="row">
 
+      <%= render 'layouts/messages' %>
+      <!-- <p id="notice"><%= notice %></p> -->
 
-        <%= image_tag(current_user.avatar.thumb.url) %>
-        <%= current_user.email %> <br>
-        <%= current_user.username %> <br>
+      <!-- Affichage Profile -->
+      <div class="small-12 medium-6 columns panel callout radius">
 
-
-        Affichage des cours avec le titre avec phrase de description
-
-
-        Les cours que l utilisateur a bookmarké 
-        Les cours que l'utilisateur a commencé
-        les cours que  l'utilisateur a ecarté
-
-
-
-
-        <%= link_to 'NEW course', new_course_path %>
-        <%= link_to 'CREATE course', courses_path %>
-        <br> 
-        <br> 
-
-
-        Faire à la sauce de netflix
-        <br> 
-        Reprendre : 
-        <br> 
-        On vous recommende 
-        <br> 
-        Les news : 
-
-        <br> 
-        ET peut être faire un système d'onglet pour un profil plus évident d'accès et plus sympa à voir
-          
-
-        <div id="tabs">
-          <ul>
-            <li><a href="#tabs-1">Nunc tincidunt</a></li>
-            <li><a href="#tabs-2">Proin dolor</a></li>
-            <li><a href="#tabs-3">Aenean lacinia</a></li>
-          </ul>
-          <div id="tabs-1">
-           Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.
-          </div>
-          <div id="tabs-2">
-            Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.
-          </div>
-          <div id="tabs-3">
-            Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.
-           
-          </div>
+        <div class="small-12 medium-4 columns">
+          <%= image_tag(current_user.avatar.thumb.url) %>
         </div>
+
+        <div class="small-12 medium-6 columns">
+          <div><%= current_user.username %></div>
+          <div><%= current_user.email %></div> 
+          <div><i class="fi-trophy"></i> Rang</div>
+        </div>
+
+      </div>
+      <!-- Fin Affichage Profil -->
+
+      <!-- Affichage Dernier Cours -->
+      <div class="small-12 medium-6 columns panel radius">
+        <div>Dernier cours Suivi / Track Suivie ?</div>
+      </div>
+      <!-- Fin Affichage Dernier Cours -->
+
+    </div>
+
+  </div>
+  <!-- Fin Tête d'Affiche -->
+
+  <!-- Affichage de la Track Suivie -->
+  <div class="row">
+
+    <div class="small-12 medium-12 columns panel callout radius">
+      <div>Track Suivie</div>
+    </div>
+
+  </div>
+  <!-- Fin Affichage de la Track Suivie -->
+
+  <!-- Affichage des Cours du User -->
+  <div class="row">
+
+    <div class="small-12 medium-4 columns panel radius">
+      <span>Les cours que l utilisateur a bookmarké</span>
+    </div>
+
+    <div class="small-12 medium-4 columns panel radius">
+      <span>Les cours que l'utilisateur a commencé</span>
+    </div>
+
+    <div class="small-12 medium-4 columns panel radius">
+      <span>les cours que  l'utilisateur a ecarté</span>
+    </div>
+
+  </div>
+  <!-- Fin Affichage des Cours du User -->
+
+  <div class="row">
+
+    <div class="small-12 medium-12 columns panel callout radius">
+      <div>Faire à la sauce de netflix</div> 
+      <div>Reprendre :</div> 
+      <div>On vous recommende</div> 
+      <div>Les news :</div> 
+      <div>ET peut être faire un système d'onglet pour un profil plus évident d'accès et plus sympa à voir</div> 
+    </div>
+    
+    <!-- Tabs version Foundation
+    <ul class="tabs" data-tab>
+      <li class="tab-title active"><a href="#tab1">Tab 1</a></li>
+      <li class="tab-title"><a href="#tab2">Tab 2</a></li>
+      <li class="tab-title"><a href="#tab3">Tab 3</a></li>
+      <li class="tab-title"><a href="#tab4">Tab 4</a></li>
+    </ul>
+    <div class="tabs-content">
+      <div class="content active" id="tab1">
+        <p>This is the first panel of the basic tab example. You can place all sorts of content here including a grid.</p>
+      </div>
+      <div class="content" id="tab2">
+        <p>This is the second panel of the basic tab example. This is the second panel of the basic tab example.</p>
+      </div>
+      <div class="content" id="ptab3">
+        <p>This is the third panel of the basic tab example. This is the third panel of the basic tab example.</p>
+      </div>
+      <div class="content" id="tab4">
+        <p>This is the fourth panel of the basic tab example. This is the fourth panel of the basic tab example.</p>
+      </div>
+    </div>
+    -->
+
+    <!-- 
+    <div id="tabs">
+      <ul>
+        <li><a href="#tabs-1">Nunc tincidunt</a></li>
+        <li><a href="#tabs-2">Proin dolor</a></li>
+        <li><a href="#tabs-3">Aenean lacinia</a></li>
+      </ul>
+      <div id="tabs-1">
+       Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.
+      </div>
+      <div id="tabs-2">
+        Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.
+      </div>
+      <div id="tabs-3">
+        Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacu
+      </div>
+    </div> 
+    -->
+
+  </div>
 
 </div>

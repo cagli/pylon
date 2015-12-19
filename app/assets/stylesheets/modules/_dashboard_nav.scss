@@ -1,8 +1,18 @@
 nav.top-bar {
     text-align:center;
     z-index: 3000;
-
 }
+
 section.top-bar-section .middle {
     display: inline-block;
+
+    img {
+    	height: 40px;
+    	width: 40px;
+    	border-radius: 50%;
+    }
+
+    span {
+    	padding-left: 5px;
+    }
 }

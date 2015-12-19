@@ -1,15 +1,78 @@
-<!-- Show Lesson -->
-<p id="notice"><%= notice %></p>
-<%= link_to course_path(@course) do %>
-<%= "#{@course.title} : #{@chapter.title} : #{@lesson.title}" %>
-<%end%>
+<div class="lesson-container">
+
+	<!-- Lien Retour -->
+	<div class="row">
+		<%= link_to '<i class="fi-arrow-left"></i> Retour'.html_safe, url_for(:back) %>
+	</div>
+	<!-- Fin Lien Retour -->
+
+	<div class="row">
+
+		<div class="small-12 medium-9 columns">    
+			
+			<div class="lesson-bloc"><!-- big bloc video + info -->
+
+				<div class="lesson-bloc-video"><!-- bloc video -->
+					<video controls>
+				    	<source src="lesson.mp4" type="video/mp4">
+				    	<source src="lesson.ogg" type="video/ogg">
+				    	Votre navigateur n'est pas compatible.
+					</video>
+				</div><!-- fin bloc video -->
+
+				<div class="lesson-bloc-info"><!-- bloc info -->
+					<div class="lesson-bloc-info-type">Type</div>
+					<div class="lesson-bloc-info-title"><%= @lesson.title %></div>
+					<div class="lesson-bloc-info-description">Description</div>
+				</div><!-- fin bloc info -->
+
+			</div><!-- fin big bloc video + info -->
+
+			<div>
+				Reste?
+			</div>
+
+		</div>
+
+		<div class="small-12 medium-3 columns">    
+			
+			<div>Bloc cours/lecon</div>
+
+			<!-- Bloc Professeur -->
+		    <div class="professeur-bloc">
+		        <div class="subheader">Professeur</div>
+
+		        <div class="professeur-info">
+		          <img src="<%= asset_path('brouchey.jpg') %>"/>
+		          <span><%= @course.teacher %></span>
+		          <p class="text-left">Description Professeur Description Professeur Description Professeur Description Professeur Description Professeur Description Professeur Description Professeur Description Professeur</p>
+		        </div>
+
+		    </div>
+		    <!-- Fin Bloc Professeur -->
+
+			<div>Autre?</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<!--
 
 
+	<p id="notice"><%= notice %></p>
 
-<br>
+	<%= link_to course_path(@course) do %>
+		<%= "#{@course.title} : #{@chapter.title} : #{@lesson.title}" %>
+	<% end %>
 
-<video width="320" height="240" controls>
-  <source src="movie.mp4" type="video/mp4">
-  <source src="movie.ogg" type="video/ogg">
-  Your browser does not support the video tag.
-</video>
+	<video width="320" height="240" controls>
+	  <source src="movie.mp4" type="video/mp4">
+	  <source src="movie.ogg" type="video/ogg">
+	  Your browser does not support the video tag.
+	</video>
+
+
+-->

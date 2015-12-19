@@ -1,0 +1,139 @@
+.course-content {
+    background-color: #ECF0F1;
+
+    .row {
+        max-width: 80em;       
+    }
+
+    .presentation-cours-bloc,
+    .chapterlist-course {
+        background-color: #FFFFFF;
+        border-radius: 4px 4px 0 0;
+        box-shadow: 1px 2px 1px #D1D1D1;
+    }
+
+    .presentation-cours-bloc {
+    
+        .presentation-cours-logo {
+            margin: 0px auto;
+            display: block;
+            max-width: 250px;
+            width: 100%;
+        }
+        
+        .presentation-cours-info {
+
+            .presentation-cours-info-category {
+
+            }
+            .presentation-cours-info-title {
+
+            }
+            .presentation-cours-info-description {
+                  font-size: 18px;
+                  padding: 20px 0px;
+                  margin-bottom: 15px;
+            }
+            .presentation-cours-info-level {
+
+            }
+            .button {
+                border: 2px solid #512DA8;
+                color: #512DA8;
+                background-color: #FFFFFF;
+            }
+        }
+    }
+
+    .progression {
+        padding-top: 10px;
+        border-top: 1px solid rgba(0,0,0,0.1);
+
+        .progress {
+            margin-bottom: 0;
+        }
+    }
+
+    .section-details-cours {
+
+        .subheader {
+            padding: 15px 0px;
+        }
+
+        .chapterlist-course {
+            margin-bottom: 30px; 
+        }
+
+        .chapter-bloc {    
+            margin: 0;
+            padding: 20px 30px;
+            
+            
+            .chapter-info-logo {
+                max-width: 150px;
+                vertical-align: middle;
+            }
+
+            .chapter-info-content {
+                color: #6C7A89;
+
+                .chapter-info-content-title,
+                .chapter-info-content-text {
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                }
+
+                .chapter-info-content-title {
+                    font-size: 18px;
+                }
+                .chapter-info-content-text {
+                    font-size: 16px;
+                }
+            }          
+        }
+
+       .lessonline {
+            height: 50px;
+            padding: 10px 30px;
+            color: #97A1AD;
+            background-color: #F9F9F9;
+            border-top: 1px solid rgba(0,0,0,0.1);
+
+            &:hover {
+                background-color: #FFFFFF;
+            }
+
+            div {
+                display: inline;
+            }
+
+            .lessonstatus i {
+                font-size: 20px;
+                margin-right: 10px;
+            }
+       }
+
+       .professeur-bloc,
+       .skills-bloc,
+       .admin-bloc {
+            padding: 0px 15px;
+            margin-bottom: 10px; 
+       }
+
+       .professeur-info {
+
+            img {
+                height: 80px;
+                width: 80px;
+                border-radius: 80px;
+                margin-right: 15px;
+            }         
+            p {
+                color: #798795;
+                margin-bottom: 0;
+            }
+       }
+
+   }
+
+}

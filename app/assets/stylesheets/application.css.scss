@@ -13,11 +13,17 @@
  *= require foundation_and_overrides
  *= require_self
  */
+ 
 @import 'foundation-icons';
 
-@import 'partials/home';
+@import 'modules/variables';
 
+@import 'modules/home_nav';
 @import 'modules/dashboard_nav';
 @import 'modules/left_sidebar';
 
-@import 'partials/courses';
+@import 'partials/home';
+@import 'partials/dashboard';
+@import 'partials/library';
+@import 'partials/course';
+@import 'partials/lesson';
