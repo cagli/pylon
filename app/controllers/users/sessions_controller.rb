@@ -11,6 +11,8 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
+
+
   # DELETE /resource/sign_out
   # def destroy
   #   super
@@ -22,4 +24,5 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.for(:sign_in) << :attribute
   # end
+
 end

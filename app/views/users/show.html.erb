@@ -1,0 +1,10 @@
+<h1> Profile</h1>
+
+    <h1> <%= @user.username%></h1> 
+	<%= image_tag(@user.avatar.thumb.url) %>
+    <%= @user.email %>
+
+    <!-- si utilisateur courrant alors current_user  si utilisateur ? alors @user -->
+    <!-- sur cette page certaines choses doivent etre visible d autre non  -->
+
+    <!-- derniere connexion voir comment afficher ce parametre -->

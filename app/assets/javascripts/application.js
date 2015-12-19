@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require jquery.sortable.min
 //= require turbolinks
 //= require foundation
 //= require_tree .
@@ -31,10 +32,10 @@ ready = function() {
 
 
 	// sortable jquery function
-	$(function() {
-	    $( "#sortable" ).sortable();
-	    $( "#sortable" ).disableSelection();
-	  });
+	// $(function() {
+	//     $( "#sortable" ).sortable();
+	//     $( "#sortable" ).disableSelection();
+	//   });
 
 	/***** Sidebar Toggle *****/
 	$('.toggleSidebar').click(function() {

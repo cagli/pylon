@@ -14,9 +14,9 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
 
-  def to_param
-   "#{id}-#{title}"
-  end
+  # def to_param
+  #  "#{id}-#{title}"
+  # end
 
 
   def index
@@ -24,14 +24,12 @@ class CoursesController < ApplicationController
     # @courses = Course.scoped
   end
 
+
   # GET /courses/1
   # GET /courses/1.json
   def show
     @course = Course.find(params[:id])
-    # @chapter = Chapter.find(params[:id])
-
     authorize! :read, @course
-
  end
 
   # GET /courses/new
@@ -42,10 +40,41 @@ class CoursesController < ApplicationController
   # GET /courses/1/edit
   def edit
     authorize! :edit, @course 
+        if request.get?
+          @course = Course.find(params[:id])
+          @chapters = @course.chapters
+     elsif request.put?
+          params[:order].each do |key,value|
+          Chapter.find(value[:id]).update_attribute(:position,value[:position])
+          flash.now[:alert] =   'suis dans la boucle.' 
+        end
+        flash.now[:alert] =   'en dehors' 
+        render :nothing => true
+      end
+    
+    end
+
+
+# def sort
+#     params[:order].each do |key,value|
+#       Chapter.find(value[:id]).update_attribute(:position,value[:position])
+#     end
+#     render :nothing => true
+#   end
+
+# def sort
+#   @course = Course.find(params[:id])
+#   @course.chapters.each do | chapter |
+#     chapter.position = params["course"].index(chapter.id.to_s)+1
+#     chapter.save
+#   end
+# end
+
+    
    #  respond_to do |format|
    #       format.html {render :layout => false} #add this line.
    # end
-  end
+  # end
 
   # POST /courses
   # POST /courses.json
@@ -93,7 +122,8 @@ class CoursesController < ApplicationController
     def set_course
       @course = Course.find(params[:id])
     end
-
+    
+  private
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
       params.require(:course).permit(:course_id, :title, :description, :course_icon, :category, :level, :teacher, :learning_skills, :course_points)
