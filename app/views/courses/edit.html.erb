@@ -1,103 +1,237 @@
-<div class="row">
+<div class="course-content">
 
-    <h1>Modification du cours : <%=@course.title %></h1>
+  <!-- Lien Retour -->
+  <div class="row">
+    <!-- link_to '<i class="fi-arrow-left"></i> Retour'.html_safe, url_for(:back) -->
+    <%= link_to '<i class="fi-arrow-left"></i> Retour Librairie'.html_safe, courses_path %>
+  </div>
+  <!-- Fin Lien Retour -->
 
+  <!-- Bloc de Présentation Générale du Cours -->
+  <div class="row presentation-cours-bloc">
 
-
-
-    <p id="notice"><%= notice %>
-
-    <h2><%= link_to '<i class="fi-arrow-left"></i> Librairie'.html_safe, courses_path %></h2>
-
-
-    <h1><%=@course.title%></h1>
-    <h1><%= 'Description du cours :' + "  "+ @course.description%></h1>
-
-
-    <br>
-      Id:
-      <%= @course.course_id %>
-    <br>
-      Title:
-      <%= @course.title %>
-    <br>
-      Description:
-      <%= @course.description %>
-    <br>
-      icon:
+    <!-- Icone du cours -->
+    <div class="small-12 medium-4 columns presentation-cours-logo">
       <%= @course.course_icon %>
-    <br>
-      Category:
-      <%= @course.category %>
-    <br>
-      Level:
-      <%= @course.level %>
-    <br>
-      Teacher:
-      <%= @course.teacher %>
-    <br>
-      Learning skills:
-      <%= @course.learning_skills %>
-    <br>
-      Points:
-      <%= @course.course_points %>
-     
-    <%= link_to 'Edit', '#', data: {:'reveal-id' => "EditCourse"} %>
+    </div>
+    <!-- Fin Icone du cours -->
 
+    <!-- Informations du cours -->
+    <div class="small-12 medium-8 columns presentation-cours-info">
+      <div class="presentation-cours-info-category"><%= @course.category %></div>
+      <div class="presentation-cours-info-level right"><%= @course.level %></div>
+      <h2 class="presentation-cours-info-title"><%= @course.title %></h2>
+      <div class="presentation-cours-info-description"><%= @course.description %></div>   
+      <%= link_to 'Voir Cours', @course, class: "button radius" %>
+      <% if can? :edit, @course %>
+        <%= link_to 'Modifier', '#', data: {:'reveal-id' => "EditCourse"}, class: "button small radius info" %>
+      <% end %>
+      <% if can? :destroy, @course %>
+        <%= link_to 'Supprimer', @course, class: "button small radius alert", method: :delete, data: { confirm: 'Confirmer?' } %>
+      <% end %>
+    </div>
+    <!-- Fin Informations du cours -->
 
- <div class="row">
-   <div class="col-md-5 col-md-offset-4 sortable" >
-      <% @course.chapters.each do |chapter| %>
-      <br> 
-        <div class="panel panel-default" data-id="<%= chapter.id %>" style="cursor: move" data-course = "<%=@course.id%>">
-          <div class="panel-heading">
-          <%= "titre du chapitre est : " + chapter.title + "    id chap  " + chapter.id.to_s + "   position : " + chapter.position.to_s%>
-          <%= link_to 'Edit', edit_chapter_path(chapter), data: {:"reveal-id" => "myModal", :"reveal-ajax" => true} %>
-        
-            <%= link_to 'Destroy', chapter_path(chapter), method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% chapter.lessons.each do |lesson| %>
-
-
-            </div>
-            <br> 
-            <div class="panel-body">
-              <%= link_to lesson do %>
-              <%= "titre de la lecon est : " + lesson.title %>
-              <%= link_to 'Edit', edit_lesson_path(lesson), data: {:"reveal-id" => "myModal", :"reveal-ajax" => true} %>
-              <%= link_to 'Destroy', lesson_path(lesson), method: :delete, data: { confirm: 'Are you sure?' } %>
-              <% end %>
-            <% end %>
-            <br>
-              <!-- fin du parcours de toutes les lecons -->
-          <%= link_to "Nouvelle Leçon", new_chapter_lesson_path(chapter) , data: {:"reveal-id" => "myModal", :"reveal-ajax" => true} %>
+    <!-- Bloc Progression du cours -->
+    <div class="small-12 columns progression">
+        <div class="row">
           
+          <!-- Ligne Bar de Progression -->
+          <div class="small-12 medium-10 columns">
+            <div class="progress small-12 success round">
+              <span class="meter" style="width: 15%"></span>
             </div>
+          </div>
+          <!-- Fin Ligne Bar de Progression -->
+
+          <!-- Pourcentage Terminé -->
+          <div class="small-12 medium-2 columns">
+            <span class="subheader">15% Progression</span>
+          </div>
+          <!-- Fin Pourcentage Terminé -->
+
+        </div>     
+    </div>
+    <!-- Fin Bloc Progression du cours -->
+
+  </div>
+  <!-- Fin Bloc de Présentation Générale du Cours -->
+
+  <!-- Détails du Cours -->
+  <div class="row section-details-cours">
+
+    <!-- Section Gauche : Listing des chapitres et Lecons -->
+    <div class="small-12 medium-9 columns section-details-cours-gauche">
+
+      <!-- Nombre d'étapes -->
+      <div class="subheader">
+        Nombres d'étapes / Durée
+      </div>
+      <!-- Fin Nombre d'étapes -->
+
+      <div class="sortable">
+
+      <!-- Listing des chapitres du cours -->
+      <%@course.chapters.each do |chapter| %>
+
+        <!-- Bloc d'un chapitre -->
+        <div class="chapterlist-course panel-default" data-id="<%= chapter.id %>" style="cursor: move" data-course = "<%=@course.id%>">
+
+          <div class="row chapter-bloc">
+
+            <div class="small-12 medium-2 columns chapter-info-logo">
+              <div>Img</div>
+            </div>
+
+            <div class="small-12 medium-10 columns">
+
+              <div class="chapter-info-content">
+                <div class="chapter-info-content-title"><%= chapter.title %></div>
+                <div class="chapter-info-content-text">
+                  <%= chapter.description %>
+                  <div class="right">
+                  <% if can? :edit, @course %>
+                    <%= link_to '<i class="fi-pencil"></i>'.html_safe, edit_chapter_path(chapter), data: {:"reveal-id" => "myModal", :"reveal-ajax" => true} %>
+                  <% end %>
+                  <% if can? :destroy, @course %>
+                    <%= link_to '<i class="fi-trash"></i>'.html_safe, chapter_path(chapter), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <% end %>
+                </div>
+                </div>
+                
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Bloc des lecons du chapitre -->
+          <div class="lessonlist-bloc">
+          
+            <!-- Listing des lecons d'un chapitre -->
+            <% chapter.lessons.each do |lesson| %>
+            
+              <!-- Ligne d'une lecon -->
+              <%= link_to lesson do %>
+
+                <div class="lessonline">
+
+                  <div class="lessonstatus"><i class="fi-play-circle"></i></div>
+                  <div class="lessontitle"><%= lesson.title %></div>
+                  <div class="right">
+                    <% if can? :edit, @course %>
+                      <%= link_to '<i class="fi-pencil"></i>'.html_safe, edit_lesson_path(lesson), data: {:"reveal-id" => "myModal", :"reveal-ajax" => true} %>
+                    <% end %>
+                    <% if can? :destroy, @course %>
+                      <%= link_to '<i class="fi-trash"></i>'.html_safe, lesson_path(lesson), method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <% end %>
+                  </div>
+
+                </div>
+
+              <% end %>
+              <!-- Fin Ligne d'une lecon -->
+
+            <% end %>
+            <!-- Fin Listing des lecons d'un chapitre -->
+
+            <!-- Ajout Leçon -->
+            <div class="lessonline">
+
+              <div class="lessonstatus"><i class="fi-plus"></i></div>
+              <div class="lessontitle">
+                <%= link_to 'Nouvelle Leçon', new_chapter_lesson_path(chapter) , data: {:"reveal-id" => "myModal", :"reveal-ajax" => true} %>
+              </div>
+
+            </div>
+            <!-- Fin Ajout Leçon -->
+
+          </div>
+          <!-- Fin Bloc des lecons d'un chapitre -->
+          
         </div>
-       <% end %>
-    </div>    
-</div>
+        <!-- Fin Bloc d'un chapitre -->
 
-<!-- fin du parcours de tous les chapitres -->
+      <% end %>
+      <!-- Fin Listing des chapitres -->
 
+    </div>
 
-        
-    <br> 
-  <%= link_to "Nouveau Chapitre", new_course_chapter_path(@course) , data: {:"reveal-id" => "myModal", :"reveal-ajax" => true} %>
+      <!-- Bloc Nouveau Chapitre -->
+      <div class="chapterlist-course">
 
+        <div class="row chapter-bloc">
 
-    <br> 
+          <div class="chapter-info-content">
+            <div class="chapter-info-content-title">
+              <%= link_to "Nouveau Chapitre", new_course_chapter_path(@course) , data: {:"reveal-id" => "myModal", :"reveal-ajax" => true} %>
+            </div>
+          </div>
 
-    <%= link_to 'Voir le cours', @course %> 
+        </div>
 
+      </div>
+      <!-- End Bloc Nouveau Chapitre -->
 
-     <div id="myModal" class="reveal-modal" data-reveal>
-      <!-- méthode modal sans lien commune à tout le monde, voir si l'on peut faire quelque chose de plus dry -->
-     </div>
+    </div>
+    <!-- Fin Section Gauche -->
 
+    <!-- Section Droite : Professeur et Compétences apprises du cours + Administration -->
+    <div class="small-12 medium-3 columns section-details-cours-droite">
 
-    	<div id="EditCourse" class="reveal-modal" data-reveal>
-    	<%= render 'form' %>
-    	<a class="close-reveal-modal">&#215;</a>
-    	</div>
-      
+      <!-- Bloc Professeur -->
+      <div class="professeur-bloc">
+        <div class="subheader">Professeur</div>
+
+        <div class="professeur-info">
+          <img src="<%= asset_path('brouchey.jpg') %>"/>
+          <span><%= @course.teacher %></span>
+          <p class="text-left">Description Professeur Description Professeur Description Professeur Description Professeur Description Professeur Description Professeur Description Professeur Description Professeur</p>
+        </div>
+      </div>
+      <!-- Fin Bloc Professeur -->
+
+      <!-- Bloc Competences -->
+      <div class="skills-bloc">
+        <div class="subheader">Competences apprises</div>
+        <div class="button round"><%= @course.learning_skills %></div>
+      </div>
+      <!-- Fin Bloc Competences -->
+
+      <!-- Bloc Administration -->
+      <div class="admin-bloc">
+
+        <% if can? :edit, @course %>
+          <div class="subheader">
+            <div>Administration</div>
+          </div>
+          <%= link_to 'Modifier', '#', data: {:'reveal-id' => "EditCourse"}, class: "button small radius info" %>
+        <% end %>
+
+        <% if can? :destroy, @course %>
+          <%= link_to 'Supprimer', @course, class: "button small radius alert", method: :delete, data: { confirm: 'Confirmer?' } %>
+        <% end %>
+
+      </div>
+      <!-- Fin Bloc Administration -->
+
+    </div>
+    <!-- Fin Section Droite : Professeur et Compétences apprises du cours + Administration -->
+
+  </div>
+  <!-- Fin Détails du Cours -->  
+       
+  <!-- Modaux Invisibles -->
+  <div id="myModal" class="reveal-modal" data-reveal>
+    <!-- méthode modal sans lien commune à tout le monde, voir si l'on peut faire quelque chose de plus dry -->
+  </div>
+
+  <div id="EditCourse" class="reveal-modal" data-reveal>
+    <!-- modal modification cours -->
+    <%= render 'form' %>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
+  <!-- Fin Modaux Invisibles -->
+
 </div>

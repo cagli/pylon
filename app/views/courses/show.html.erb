@@ -2,7 +2,8 @@
 
   <!-- Lien Retour -->
   <div class="row">
-    <%= link_to '<i class="fi-arrow-left"></i> Retour'.html_safe, url_for(:back) %>
+    <!-- link_to '<i class="fi-arrow-left"></i> Retour'.html_safe, url_for(:back) -->
+    <%= link_to '<i class="fi-arrow-left"></i> Retour Librairie'.html_safe, courses_path %>
   </div>
   <!-- Fin Lien Retour -->
 
@@ -22,6 +23,9 @@
       <h2 class="presentation-cours-info-title"><%= @course.title %></h2>
       <div class="presentation-cours-info-description"><%= @course.description %></div>   
       <div class="button radius success">Démarrer</div>
+      <% if can? :edit, @course %>
+        <%= link_to 'Edition', edit_course_path(@course), class: "button radius info" %>
+      <% end %>
     </div>
     <!-- Fin Informations du cours -->
 
@@ -149,7 +153,7 @@
           <div class="subheader">
             <div>Administration</div>
           </div>
-          <%= link_to 'Modifier', edit_course_path(@course), class: "button small radius info" %>
+          <%= link_to 'Edition', edit_course_path(@course), class: "button small radius info" %>
         <% end %>
 
         <% if can? :destroy, @course %>
